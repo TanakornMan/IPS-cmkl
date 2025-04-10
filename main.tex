@@ -83,18 +83,41 @@
 	
 	
 	\section{Methodology}
-	This experiment was conducted on the 6th floor and 7th floor hallways of the CMKL building. To match the physical environment to the virtual environment, 1 metre by 1 metre grids were measured, taped and labelled on the floor. The criteria for usable grids were grids that were in the hallway and grids that did not have a permanent obstruction in place like a vending machine or a printer. The total amount of grids per floor was around 600+ grids. After the grids were created, data was collected through the use of two android phones. The mobile application used on the android devices was taken from an open source project of the paper called “ML-BASED MULTI-FLOOR IPS: A COMPARISON”\cite{bgp4}. This mobile application allows us to upload a map of the area and then segment it into identically sized grids.
+	This experiment was conducted on the 6th floor and 7th floor hallways of the CMKL building. To match the physical environment to the virtual environment, 1 metre by 1 metre grids were measured, taped and labelled on the floor. The criteria for usable grids were grids that were in the hallway and grids that did not have a permanent obstruction in place like a vending machine or a printer. The total amount of grids per floor was around 600+ grids. After the grids were created, data was collected through the use of two android phones. 
+	
+	An issue we found when taping the 6th floor was that some areas of the floor had different tilling panels as well as orientation. This caused difficulties as the uniformity of the floor tiles helped provide us with a way to accurately measure the straightness of the 1 metre grid, which was done by measuring the distance of the edge grooves of the tile towards the edge of the 1 metre grid and checking if it provided the same distance. This issue occurred in two areas, the cafeteria area, and the study area.
+	
+	For the cafeteria area, the issue was easily resolved as we could measure the difference in distance from the groove of the normal tile and the groove of the cafeteria tile, then add or subtract it from the edge measurement. 
+	
+	For the lounge area, it was significantly more difficult to deal with due to the fact that the tiles used were of different sizes as well as different orientation. To handle this we created a single straight line onto the lounge area with a tape measure from a point, then proceeded to take 1 metre measurements of that tape measure to create grids. 
+	
+	Another problematic thing to note is the fact that the area used for our experiment is subject to wear and tear conditions, as human traffic as well as cleaners cleaning the area can cause some of the tape to be torn apart or moved slightly, which may result in an inaccurate grid.  
+	
+	For the purpose of developing a Multi-Floor IPS model. This experiment was conducted on the 6th floor and 7th floor hallways of the CMKL building. This location was chosen as it provided us with two near identical hallways on two different floors. This allowed for an easier grid distribution as the grid mapping on the 6th and 7th floor were near identical due to how similar the hallways are. The area also had regular traffic by students and teachers, allowing us to have a realistic testing environment where we could see the effects of regular foot traffic on the testing environment. To match the physical environment to the virtual environment, 1 metre by 1 metre grids were measured, taped and labelled on the floor. The criteria for usable grids were grids that were in the hallway and grids that did not have a permanent obstruction in place like a vending machine or a printer. The total amount of grids per floor was around 600+ grids. After the grids were created, data was collected through the use of two android phones. The mobile application used on the android devices was taken from an open source project of the paper called “ML-BASED MULTI-FLOOR IPS: A COMPARISON”\cite{bgp4}. This mobile application allows us to upload a map of the area and then segment it into identically sized grids.
 	
 	
 	During the taping of the 6th floor, we encountered some challenges related to the varying types and orientations of the tiling panels in certain areas. This created a slight deviation from the uniformity of the floor tiles, which we were relying on to accurately measure the straightness of the 1-meter grid. To measure this, we typically used the distance from the edge grooves of the tiles to the edge of the 1-meter grid, checking for consistency. However, we were able to overcome these challenges in two key areas: the cafeteria and the study area.
 	
+	\begin{figure}[htbp]
+		\centerline{\includegraphics[angle=90, scale=0.22]{meth1.png}}
+		\caption{Methodology to divide the cafeteria area into 1x1 metre grids}
+		\label{fig1}
+	\end{figure}
+	
 	In the cafeteria, the solution was straightforward. We simply measured the difference in distance between the grooves of the standard tiles and those used in the cafeteria. By adjusting the measurements accordingly, we were able to maintain an accurate grid despite the variation in tile type.
 	
-	The lounge area presented a more complex challenge due to the tiles being different sizes and orientations. To address this, we created a single straight line across the lounge using a tape measure from a fixed point. We then took 1-meter measurements along the tape to establish the grid, ensuring accuracy despite the initial tile variations.
+	\begin{figure}[htbp]
+		\centerline{\includegraphics[scale=0.22]{meth2.jpg}}
+		\caption{Methodology to divide the lounge area into 1x1 metre grids}
+		\label{fig2}
+	\end{figure}
 	
+	The lounge area presented a more complex challenge due to the tiles being in different sizes and orientation, as shown by the image above (4.) . To address this, we created a single straight line across the lounge using a tape measure from a fixed point which we proceeded to use as the reference line as shown above. We then took 1-meter measurements using a measuring tape (2.). A second reference line was used to make sure that the measuring tape was straight so that the 1 metre grid would not be slanted.
 	Additionally, we had to account for the wear and tear on the area used for our experiment. Human traffic and cleaning activity had the potential to slightly shift or damage the tape, which could impact the grid's accuracy. However, by monitoring and adjusting for any movement in the tape, we were able to maintain the integrity of our measurements throughout the process.
 	
+	
 	The data collected resulted in xxx amount of points collected for floor 7 and xxx amount of points collected for floor 6
+	
 	
 	
 	\section{Result}
@@ -105,13 +128,13 @@
 	\begin{figure}[htbp]
 		\centerline{\includegraphics[scale=0.65]{image3.png}}
 		\caption{Model Accuracy on Different grid size}
-		\label{fig1}
+		\label{fig3}
 	\end{figure}
 	
 	\begin{figure}[htbp]
 		\centerline{\includegraphics[scale=0.65]{image1.png}}
 		\caption{Model Average grid away from Target on Different grid size}
-		\label{fig2}
+		\label{fig4}
 	\end{figure}
 	
 	To further analyze the spatial distribution of WiFi signals within our test environment, we generated a BSSID heatmap. This visualization helps illustrate how different access points contribute to the overall feature space used in our IPS model. By mapping the signal strength of each detected BSSID across various grid locations, we can better understand signal propagation patterns and identify potential inconsistencies caused by environmental factors such as interference and signal attenuation. The heatmap serves as a diagnostic tool to evaluate the reliability of WiFi-based positioning in our setup. For clarity, readers should ignore the ID and Comment fields in the heatmap, as these are included solely to ensure the data is plotted correctly.
@@ -150,7 +173,7 @@
 	\begin{figure}[htbp]
 		\centerline{\includegraphics[scale=0.65]{image2.png}}
 		\caption{Average Distance Error Across Different Grid Resolutions}
-		\label{fig3}
+		\label{fig5}
 	\end{figure}
 	
 	Training an IPS model involves significant computational challenges, particularly when dealing with high-dimensional feature spaces. In our experiment, we implemented a simple Wi-Fi access point filtering approach, selecting only access points containing cmkl and kmitl in their names. This drastically reduced the number of access points used as features, making the training process more efficient.
@@ -191,6 +214,7 @@
 		\bibitem{bgp1} A, Nessa, B. Adhikari, F. Hussain and X. N. Fernando, A Survey of Machine Learning for Indoor Positioning," in IEEE Access, vol. 8, pp. 214945-214965, 2020, doi: 10.1109/ACCESS.2020.3039271
 		\bibitem{bgp2} H. A. de Souza Mourão and H. A. B. F. de Oliveira, Indoor Localization System Using Fingerprinting and Novelty Detection for Evaluation of Confidence in Future Internet ,14(2) , 51. 2022, doi:  https://doi.org/10.3390/fi14020051 
 		\bibitem{bgp3} H.T. Gidey, X. Guo, K. Zhong, L. Li, Y. Zhang. OHetTLAL: An Online Transfer Learning Method for Fingerprint-Based Indoor Positioning in  Sensors 2022, 22(23), 9044, doi: https://doi.org/10.3390/s22239044
+		\bibitem{bgp4} H. Obeidat, W. Shuaieb, O. Obeidat, and R. Abd-Alhameed, "A Review of Indoor Localization Techniques and Wireless Technologies," *Wireless Personal Communications*, vol. 119, no. 1, pp. 289–327, Jul. 2021, doi: 10.1007/s11277-021-08209-5.
 		\bibitem{bg2} D. Csik, Á. Odry, and P. Sarcevic, "Comparison of RSSI-Based Fingerprinting Methods for Indoor Localization," in *Proc. 20th IEEE International Symposium on Intelligent Systems and Informatics (SISY)*, Subotica, Serbia, Sep. 2022, pp. 000273–000278, doi: 10.1109/SISY56759.2022.10036270.
 		\bibitem{LRE1} B. Intachuen, M. Charoenphon, T. Mankhetwit (2024), Classification-based-IPS [Online]. Available: \url{https://github.com/RinRin-32/Classification-based-IPS}
 		\bibitem{LRE2} R. Vishwakarma, R. B. Joshi, and S. Mishra. IndoorGNN: A Graph Neural Network based approach for Indoor Localization using WiFi RSSI, In Big Data and Artificial Intelligence: 11th International Conference, BDA 2023, 150–165, \url{doi:https://doi.org/10.1007/978-3-031-49601-1_11}
