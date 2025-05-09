@@ -13,6 +13,12 @@
 \usepackage{float}    % Allows [H] for strict placement
 \usepackage{comment}
 \usepackage{url}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{makecell}
 \renewcommand{\bfdefault}{b}
 \graphicspath{{./figures}}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -115,23 +121,55 @@
 	
 	
 	\section{Result}
-	The dataset used in this study consisted of 12,640 data points collected across 1x1m\textsuperscript{2} grids distributed among the floors of our experimental setup. By filtering the available BSSID to utilize only SSID with ‘kmitl’ or ‘cmkl’ we end up with 392 unique BSSID, spanning across the 2 floors of the experiment. A rationale behind filtering WiFi signals in this experiment is to determine whether only easily known BSSID can be utilized in implementing IPS. 9019 data points were collected on 6th floor and 3621 data points were collected on 7th floor.
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{\textbf{Collected Data Points}} & \textbf{\# BSSID} \\
+			\hline
+			\multirow{2}{*}{\textbf{Filtering Features}} & \textbf{Non-Filtered} & 1799 \\
+			\cline{2-3}
+			& \textbf{Filtered}     & 378  \\
+			\hline
+		\end{tabular}
+		\caption{Total Bssid Before and After Filtering}
+		\label{tab:bssid_counts}
+	\end{table}
 	
-	To explore how different parameter settings impact model training, we systematically iterate through various configurations, training the model multiple times under each setting. The table below highlights the best results observed. Notably, the highest accuracy and the best AGT (Adaptive Generalization Tradeoff) do not come from the same parameter setting. This suggests that these metrics prioritize different aspects of performance—optimizing for accuracy does not necessarily yield the best AGT and vice versa. This insight provides a key perspective as we analyze the results in more detail.
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\makecell{\textbf{Grid}\\\textbf{Count}} & \multicolumn{8}{c|}{\textbf{Grid Size Variations}} \\
+			\cline{2-9}
+			& 1x1 & 3x3 & 5x5 & 7x7 & 9x9 & 11x11 & 13x13 & 15x15 \\
+			\hline
+			\textbf{Total Grid} & 483 & 96 & 47 & 29 & 28 & 16 & 18 & 9 \\
+			\hline
+		\end{tabular}
+		\caption{Total unique Grid present and Used for each grid size experiment training}
+		\label{tab:grid_size_variations}
+	\end{table}
+	
+	The dataset used in this study consisted of 12,640 data points collected across 1x1m\textsuperscript{2} grids distributed among the floors of our experimental setup. By filtering the available BSSID to utilize only SSID with ‘kmitl’ or ‘cmkl’ we end up with 378 unique BSSID, spanning across the 2 floors of the experiment. A rationale behind filtering WiFi signals in this experiment is to determine whether only easily known BSSID can be utilized in implementing IPS. 9019 data points were collected on 6th floor and 3621 data points were collected on 7th floor.
+	
+	To explore how different parameter settings impact model training, we systematically iterate through various configurations, training the model multiple times under each setting. The table below highlights the best results observed. Notably, the highest accuracy and the best AGT (Average Grid from Target) do not come from the same parameter setting.
+	
+	
+	
+	This suggests that these metrics prioritize different aspects of performance—optimizing for accuracy does not necessarily yield the best AGT and vice versa. This insight provides a key perspective as we analyze the results in more detail. Another thing of note is, according to Figure~\ref{fig:AGT_dgrid_size}, from 7x7m grid size onwards, our best AGT measured across different model starts to plateau which could indicate diminishing returns from increasing experiment grid size.
 	
 	\begin{figure}[htbp]
 		\centerline{\includegraphics[scale=0.65]{image3.png}}
 		\caption{Model Accuracy on Different grid size}
-		\label{fig3}
+		\label{fig:acc_dgird_size}
 	\end{figure}
 	
 	\begin{figure}[htbp]
 		\centerline{\includegraphics[scale=0.65]{image1.png}}
 		\caption{Model Average grid away from Target on Different grid size}
-		\label{fig4}
+		\label{fig:AGT_dgrid_size}
 	\end{figure}
-	
-	To further analyze the spatial distribution of WiFi signals within our test environment, we generated a BSSID heatmap. This visualization helps illustrate how different access points contribute to the overall feature space used in our IPS model. By mapping the signal strength of each detected BSSID across various grid locations, we can better understand signal propagation patterns and identify potential inconsistencies caused by environmental factors such as interference and signal attenuation. The heatmap serves as a diagnostic tool to evaluate the reliability of WiFi-based positioning in our setup. For clarity, readers should ignore the ID and Comment fields in the heatmap, as these are included solely to ensure the data is plotted correctly.
 	
 	\begin{comment}
 	\begin{figure*}[hbt!]
@@ -158,42 +196,48 @@
 	
 	
 	\section{Discussion}
-	By conducting our experiment across multiple grid sizes, we can visualize the tradeoff between grid size and precision. To quantify this, we calculate the average grid deviation from the target and multiply it by each grid size’s diagonal length, as shown in (insert fig number). This figure illustrates the expected deviation in predictions when a model is trained on a specific grid size, should an error occur.
+	By conducting our experiment across multiple grid sizes, we can visualize the tradeoff between grid size and precision. To quantify this, we calculate the average grid deviation from the target and multiply it by each grid size’s diagonal length, as shown in Figure~\ref{fig:AGT_dgrid_size}. This figure illustrates the expected deviation in predictions when a model is trained on a specific grid size, should an error occur.
 	
 	While a 15×15m grid size performs well on the graph, it inherently limits accuracy to that resolution. In cases where predictions are correct, the location remains constrained within a 15×15m area, which may not be suitable for applications requiring higher precision—such as those needing to pinpoint areas smaller than this grid size.
 	
-	Through this experiment, we find that a 7×7m grid size offers the best balance between accuracy and precision. It minimizes error while remaining small enough for use in precision-dependent applications. However, it is important to note that these findings may not generalize to all IPS implementations in different environments. The results suggest that increasing grid size does not necessarily improve accuracy; in some cases, performance actually declines, as shown in the chart. This highlights the need for careful consideration when selecting a grid size based on the specific requirements of an IPS deployment.
+	Through this experiment, we find that a 7×7m grid size offers the best balance between accuracy and precision. Below demonstrates our Average Distance away from Target metric (ADT) which is a byproduct between AGT and diagonal length of used grid size. Utilizing 7x7m grid size minimizes error while remaining small enough for use in precision-dependent applications. However, it is important to note that these findings may not generalize to all IPS implementations in different environments. The results suggest that increasing grid size does not necessarily improve accuracy or even precision; in some cases, performance actually declines, as shown in the chart. This highlights the need for careful consideration when selecting a grid size based on the specific requirements of an IPS deployment.
+	
 	
 	\begin{figure}[htbp]
 		\centerline{\includegraphics[scale=0.65]{image2.png}}
 		\caption{Average Distance Error Across Different Grid Resolutions}
-		\label{fig5}
+		\label{fig:Avg_dis_err}
 	\end{figure}
 	
 	Training an IPS model involves significant computational challenges, particularly when dealing with high-dimensional feature spaces. In our experiment, we implemented a simple Wi-Fi access point filtering approach, selecting only access points containing cmkl and kmitl in their names. This drastically reduced the number of access points used as features, making the training process more efficient.
 	
-	With this filtering method, we were able to train models across multiple grid sizes (1×1, 3×3, 5×5, 7×7, 9×9, 11×11, 13×13, and 15×15) within four days. In contrast, the unfiltered dataset took six days to complete training for just the 1×1 grid size across all target models we intended to test. Due to computational constraints—specifically, the complexity exceeding the capabilities of a single RTX 3080 Ti—we were unable to conduct further experiments with the unfiltered dataset.
+	While the filtering method we applied was relatively simple, it had a surprisingly large impact on computational feasibility. By reducing the number of BSSID features from 1799 to 378, we were able to train models across a wide range of grid sizes (1×1 to 15×15) without overwhelming our hardware. In contrast, attempting to train on the full, unfiltered set quickly became impractical—our RTX 3080 Ti struggled even with the smallest grid size. Although we didn’t record exact runtimes, the difference in resource demands was stark. This raises questions about the actual utility of the full feature set and suggests that a more systematic study of feature selection or dimensionality reduction could be worthwhile in future works.
 	
 	Interestingly, our results indicate that filtering access points did not negatively impact the model's learning process. A comparison of training trajectories for the 1×1 grid experiment shows that the filtered model performed comparably to the unfiltered one, if not slightly better in terms of convergence. This suggests that reducing feature dimensionality not only accelerates training but may also make learning more stable.
+	
 	
 	\begin{figure*}[hbt!]
 		\centering
 		\begin{minipage}{0.45\textwidth}
 			\centering
 			\includegraphics[width=\linewidth]{image5.png}
-			\caption{RF Model accuracy with BSSID filtering (1x1)} % Caption without numbering
-			
-			\includegraphics[width=\linewidth]{image6.png}
+			\caption{RF Model accuracy with BSSID filtering (1x1)} 	
+			\label{fig:rf_acc_filter}
+				
+			\includegraphics[width=\linewidth]{image4.png}
 			\caption{RF Model AGT with BSSID filtering(1x1)}
+			\label{fig:rf_agt_filter}
 		\end{minipage}
 		\hfill
 		\begin{minipage}{0.45\textwidth}
 			\centering
-			\includegraphics[width=\linewidth]{image4.png}
+			\includegraphics[width=\linewidth]{image6.png}
 			\caption{RF Model accuracy without BSSID filtering(1x1)}
+			\label{fig:rf_acc_nofilter}
 			
 			\includegraphics[width=\linewidth]{image7.png}
 			\caption{RF Model AGT without BSSID filtering(1x1)}
+			\label{fig:rf_agt_nofilter}
 		\end{minipage}
 	\end{figure*}
 	
