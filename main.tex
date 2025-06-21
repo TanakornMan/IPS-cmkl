@@ -133,7 +133,15 @@
 	
 	For example, when creating a 2m x 2m grid, we do this by determining a value where the sum of distances between the RSSI values of the centres are all 0 in all four grids and then interpolating them. This method works as our grid sizes were 1m x 1m grids.
 	
-	\paragraph{Unrelated RSSI Value Filtering and Datasets}
+	\begin{figure}[htbp]
+		\centerline{\includegraphics[scale=0.8]{image14.jpg}}
+		\caption{Combining Grid}
+		\label{fig:grid_think}
+	\end{figure}
+	
+	\paragraph{Unrelated RSSI Value Filtering and Datasets} Many points exhibit low RSSI values as shown previously in Figure. 4. To avoid underfitting, we have chosen to omit these values from our model. However; the removal of these values does not guarantee that the model will have improved accuracy. To measure this, we have created two datasets, one with all the access points and one with the omitted RSSI values. We can then compare the results of both datasets to determine the impact that these omitted values have on the performance of our IPS system.
+	
+	We also considered implementing white-listing of access points within the targeted area, but we realised that this was not required as by doing so for a mult-floor model would result in our dataset exhibiting characteristics similar to an unfiltered dataset.
 	
 	
 	\section{Result}
@@ -165,6 +173,19 @@
 		\end{tabular}
 		\caption{Total unique Grid present and Used for each grid size experiment training}
 		\label{tab:grid_size_variations}
+	\end{table}
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{lllll}
+		\cline{1-3}
+		\multicolumn{1}{|l|}{}              & \multicolumn{2}{l|}{\textbf{Floor}}                          &  &  \\ \cline{1-3}
+		\multicolumn{1}{|l|}{\textbf{1x1 Grid Size}} & \multicolumn{1}{l|}{6}   & \multicolumn{1}{l|}{7}   &  &  \\ \cline{1-3}
+		\multicolumn{1}{|l|}{\textbf{Grid Count}}    & \multicolumn{1}{l|}{309} & \multicolumn{1}{l|}{174} &  &  \\ \cline{1-3}
+		&                          &                          &  & 
+		\end{tabular}
+		\caption{Total true unique grid}
+		\label{tab:Total true unique grid} 
 	\end{table}
 	
 	The dataset used in this study consisted of 12,640 data points collected across 1x1m\textsuperscript{2} grids distributed among the floors of our experimental setup. By filtering the available BSSID to utilize only SSID with ‘kmitl’ or ‘cmkl’ we end up with 378 unique BSSID, spanning across the 2 floors of the experiment. A rationale behind filtering WiFi signals in this experiment is to determine whether only easily known BSSID can be utilized in implementing IPS. 9019 data points were collected on 6th floor and 3621 data points were collected on 7th floor.
