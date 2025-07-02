@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.2) (preloaded format=xelatex 2025.3.9)  21 JUN 2025 21:01
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.2) (preloaded format=xelatex 2025.3.9)  3 JUL 2025 00:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -934,6 +934,9 @@ File: ./figures/meth2.jpg Graphic file (type bmp)
 
 
 
+Underfull \vbox (badness 4229) has occurred while \output is active []
+
+
 
 [3]
 File: ./figures/meth3.jpg Graphic file (type bmp)
@@ -1054,6 +1057,6 @@ Here is how much of TeX's memory you used:
  34892 multiletter control sequences out of 15000+600000
  591117 words of font info for 169 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 85i,17n,133p,1866b,419s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,17n,133p,1814b,419s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main.pdf (7 pages).
