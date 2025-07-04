@@ -134,9 +134,9 @@
 	For example, when creating a 2m x 2m grid, we do this by determining a value where the sum of distances between the RSSI values of the centres are all 0 in all four grids and then interpolating them. This method works as our grid sizes were 1m x 1m grids.
 	
 	\begin{figure}[htbp]
-		\centerline{\includegraphics[scale=0.8]{image14.jpg}}
-		\caption{Combining Grid}
-		\label{fig:grid_think}
+		\centerline{\includegraphics[scale=0.5]{image14.jpg}}
+		\caption{Visualizing grid resizing}
+		\label{fig:vis_grid_resize}
 	\end{figure}
 	
 	\paragraph{Unrelated RSSI Value Filtering and Datasets} Many points exhibit low RSSI values as shown previously in fig. 4. To avoid underfitting, we have chosen to omit these values from our model. However; the removal of these values does not guarantee that the model will have improved accuracy. To measure this, we have created two datasets, one with all the access points and one with the omitted RSSI values. We can then compare the results of both datasets to determine the impact that these omitted values have on the performance of our IPS system.
@@ -231,9 +231,43 @@
 	\end{figure*}
 	\end{comment}
 	
+	\begin{figure*}[hbt!]
+		\centering
+		% First row
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{image5.png}
+			\caption{RF Model accuracy with BSSID filtering (1x1)}
+			\label{fig:rf_acc_filter}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{image6.png}
+			\caption{RF Model accuracy without BSSID filtering (1x1)}
+			\label{fig:rf_acc_nofilter}
+		\end{minipage}
+		
+		\vspace{0.5cm} % vertical space between rows
+		
+		% Second row
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{image4.png}
+			\caption{RF Model AGT with BSSID filtering (1x1)}
+			\label{fig:rf_agt_filter}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{image7.png}
+			\caption{RF Model AGT without BSSID filtering (1x1)}
+			\label{fig:rf_agt_nofilter}
+		\end{minipage}
+	\end{figure*}
 	
 	\section{Discussion}
-	By conducting our experiment across multiple grid sizes, we can visualize the tradeoff between grid size and precision. To quantify this, we calculate the average grid deviation from the target and multiply it by each grid size’s diagonal length, as shown in fig. ~\ref{fig:AGT_dgrid_size}. This fig. illustrates the expected deviation in predictions when a model is trained on a specific grid size, should an error occur.
+	By conducting our experiment across multiple grid sizes, we can visualize the tradeoff between grid size and precision. To quantify this, we calculate the average grid deviation from the target and multiply it by each grid size’s diagonal length, as shown in fig. ~\ref{fig:AGT_dgrid_size}. It illustrates the expected deviation in predictions when a model is trained on a specific grid size, should an error occur.
 	
 	While a 15×15m grid size performs well on the graph, it inherently limits accuracy to that resolution. In cases where predictions are correct, the location remains constrained within a 15×15m area, which may not be suitable for applications requiring higher precision—such as those needing to pinpoint areas smaller than this grid size.
 	
@@ -246,37 +280,16 @@
 		\label{fig:Avg_dis_err}
 	\end{figure}
 	
+	
+	
 	Training an IPS model involves significant computational challenges, particularly when dealing with high-dimensional feature spaces. In our experiment, we implemented a simple Wi-Fi access point filtering approach, selecting only access points containing specific identifiers in their names. This drastically reduced the number of access points used as features, making the training process more efficient.
 	
-	While the filtering method we applied was relatively simple, it had a surprisingly large impact on computational feasibility. By reducing the number of BSSID features from 1799 to 378, we were able to train models across a wide range of grid sizes (1×1 to 15×15) without overwhelming our hardware. In contrast, attempting to train on the full, unfiltered set quickly became impractical—our RTX 3080 Ti struggled even with the smallest grid size. Although we didn’t record exact runtimes, the difference in resource demands was stark. This raises questions about the actual utility of the full feature set and suggests that a more systematic study of feature selection or dimensionality reduction could be worthwhile in future works.
+	While the filtering method we applied was relatively simple, it had a surprisingly large impact on computational feasibility. Observing fig. ~\ref{fig:rf_acc_filter} and ~\ref{fig:rf_acc_nofilter}, by reducing the number of BSSID features from 1799 to 378, we were able to train models across a wide range of grid sizes (1×1 to 15×15) without overwhelming our hardware. In contrast, attempting to train on the full, unfiltered set quickly became impractical—our RTX 3080 Ti struggled even with the smallest grid size. Although we didn’t record exact runtimes, the difference in resource demands was stark. This raises questions about the actual utility of the full feature set and suggests that a more systematic study of feature selection or dimensionality reduction could be worthwhile in future works.
 	
-	Interestingly, our results indicate that filtering access points did not negatively impact the model's learning process. A comparison of training trajectories for the 1×1 grid experiment shows that the filtered model performed comparably to the unfiltered one, if not slightly better in terms of convergence. This suggests that reducing feature dimensionality not only accelerates training but may also make learning more stable.
+	Fig. ~\ref{fig:rf_agt_filter} and ~\ref{fig:rf_agt_nofilter} suggest that filtering access points did not negatively impact the model's learning process. A comparison of training trajectories for the 1×1 grid experiment shows that the filtered model performed comparably to the unfiltered one, if not slightly better in terms of convergence. This suggests that reducing feature dimensionality not only accelerates training but may also make learning more stable.
 	
 	
-	\begin{figure*}[hbt!]
-		\centering
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{image5.png}
-			\caption{RF Model accuracy with BSSID filtering (1x1)} 	
-			\label{fig:rf_acc_filter}
-				
-			\includegraphics[width=\linewidth]{image4.png}
-			\caption{RF Model AGT with BSSID filtering(1x1)}
-			\label{fig:rf_agt_filter}
-		\end{minipage}
-		\hfill
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{image6.png}
-			\caption{RF Model accuracy without BSSID filtering(1x1)}
-			\label{fig:rf_acc_nofilter}
-			
-			\includegraphics[width=\linewidth]{image7.png}
-			\caption{RF Model AGT without BSSID filtering(1x1)}
-			\label{fig:rf_agt_nofilter}
-		\end{minipage}
-	\end{figure*}
+
 	
 	
 	
