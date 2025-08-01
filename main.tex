@@ -25,7 +25,7 @@
 		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 	
-	\title{Multi-Floor IPS, a Simplified Indoor Positioning System Study*\\
+	\title{Multi-Floor IPS, A Simplified Indoor Positioning System Study*\\
 		{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and
 			should not be used}
 		\thanks{Identify applicable funding agency here. If none, delete this.}
@@ -74,9 +74,13 @@
 	The usage of Machine Learning in conjunction with IPS has been shown to be effective to improve the performance of IPS. For example, a work by Gidey et al. \cite{bgp3} uses online heterogeneous transfer learning to improve the accuracy by combining data from different domains. By using Machine Learning algorithms such as Support vector Machines (SVM), Decision Trees, k-Nearest Neighbor (kNN), Random Forests, and Neural Networks (NN) it may be possible to remedy the shortcomings of IPS systems by treating it as a classification problem. This makes the positioning precision be within a range, so while it may not be able to provide a user's exact location, it can give a relatively reliable estimate on the user's area.
 	
 	In our previous work, we implemented an IPS using a large grid size (16.75×15m) to reduce the number of classification labels, making the problem more manageable within time constraints. While this approach provided a functional implementation, it left several questions unanswered. Specifically, we sought to determine how the number of data points influences IPS performance, whether a reliable IPS can be implemented with a limited number of BSSID to control feature space complexity, and how small a grid size can be while still maintaining reasonable positioning accuracy.
-	Building on this prior work, this paper further explores the use of classification-based IPS by refining our approach to ground truth reliability in experimental settings. We evaluate the effects of feature filtering on model complexity, discuss the trade-offs between grid size and precision, and analyze the advantages and limitations of our implementation. To better quantify accuracy, we introduce two new evaluation metrics: Average Grid from Target (AGT) and Average Distance from Target (ADT). Through this study, we provide deeper insights into the design considerations for IPS, offering practical takeaways for improving indoor positioning accuracy.
-	
-
+	Building on this prior work, this paper further explores the use of classification-based IPS by refining our approach to ground truth reliability in experimental settings. The main contributions of this paper are as follows:
+	\begin{enumerate}
+		\item We examine the effects of feature filtering on model complexity.
+		\item We investigate the trade-offs between grid size and precision and analyze the advantages and limitations of our implementation.
+		\item We introduce two new evaluation metrics, Average Grid from Target (AGT) and Average Distance from Target~(ADT).
+		\item We present deeper insights into the design considerations for IPS, offering practical takeaways for improving indoor positioning accuracy.
+	\end{enumerate}
 	
 	\section{Literature Review}
 	IPS have been extensively studied, with a range of techniques developed to address the challenge of accurate localization within indoor environment. Traditional methods of IPS like Wi-Fi RSSI fingerprinting have been enhanced through the use of various ML algorithms, for example, k-Nearest Neighbor (kNN) \cite{LRE1}, \cite{LRE2}, \cite{LRE6}, Random Forest (RF) \cite{LRE1}, \cite{LRE6}, \cite{LRE5}, Support Vector Machine (SVM) \cite{LRE1}, \cite{LRE2}, \cite{LRE6} and Multi-Layer Perceptron (MLP) \cite{LRE1}, \cite{LRE2}. Because positioning can be treated as a classification problem,  ML algorithms based on statistics and regression are well-suited for this task. With this in mind, the improvement of data collection is essential, as the quality of RSSI data points significantly impact on IPS accuracy. This could be done by training datasets with readings from different devices and collected at different times of the day, as noted in \cite{LRE3}. Several studies have proposed methods to refine dataset quality to better train fingerprinting algorithms used in positioning systems, such as combining Human Activity Recognition (HAR) using sensors with fingerprint collection \cite{LRE4} and the development of coordination-based Android applications \cite{LRE7}. These efforts have contributed modest improvements to IPS performance and created chances to develop IPS even more with additional data points. 
@@ -88,7 +92,7 @@
 	\section{Research Methodology}
 	This paper adopts a systematic and empirical research methodology with the aim of identifying environmental factors that influence the IPS. This methodology is illustrated in Fig.~\ref{fig:graph_step}.
 	
-	The figure illustrates the research methodology used in this paper. It is structured into four parts (1) Identification of environmental factors, (2) Extraction of data that is related to the factors, (3) Training of fingerprint matching models, and~(4) Analyzing and reviewing the results. The research began by carefully investigating and identifying environmental factors that may potentially interfere with the IPS performance. This was done through researching research papers that have investigated similar things as well as analysing the area in order to find key components that were likely to cause interference. After that, we analysed the data we collected and then generated fingerprint databases. From investigating the data, we decided to create two datasets, one with different grid sizes and the other with varying numbers of points of reference. These datasets were then used to train various ML Models which ran a different algorithm, including KNN, SVM, RF, MLP, XGBoost, XGBoost-based RF (XBGRF). Grid size was selected as a key variable in our investigation as we want to determine and measure the extent to which different grid sizes affect our results as well as find the optimal gridsize. Finally the accuracy of the location prediction created by these models were analyzed and evaluated against ground truth data.
+	The figure illustrates the research methodology used in this paper. It is structured into four parts (1) Identification of environmental factors, (2) Extraction of data that is related to the factors, (3) Training of fingerprint matching models, and~(4) Analyzing and reviewing the results. The research began by carefully investigating and identifying environmental factors that may potentially interfere with the IPS performance. This was done through researching research papers that have investigated similar things as well as analysing the area in order to find key components that were likely to cause interference. After that, we analysed the data we collected and then generated fingerprint databases. From investigating the data, we decided to create two datasets, one with different grid sizes and the other with varying numbers of points of reference. These datasets were then used to train various ML Models which ran a different algorithm, including KNN, SVM, RF, MLP, XGBoost, XGBoost-based RF (XBGRF). We chose these models because they are known for traditional classification tasks and are easily accessible. The goal is to simplify IPS and validate their viability without relying on complex techniques. Grid size was selected as a key variable in our investigation as we want to determine and measure the extent to which different grid sizes affect our results as well as find the optimal gridsize. Finally the accuracy of the location prediction created by these models were analyzed and evaluated against ground truth data.
 	
 	
 	
@@ -100,7 +104,7 @@
 	
 	One challenge encountered during the taping process was the varying layout across different areas. Certain sections of the floor did not feature uniform tiling, with discrepancies in elevation and angle. This issue was effectively mitigated by constructing grids based on previously mapped reference points. Although minor measurement inaccuracies may exist, these are considered negligible for the purposes of this study.
 	
-	While taping and collecting data points, another factor that could interfere with the IPS collection presented itself. The specific area inside the grid also affected how many RSSI values were present. For instance, collecting data in the top left corner of the grid could produce different RSSI values compared to the center of the grid. This issue could be addressed by either (1) removing the edge grids and (2) collecting fewer data points in the edge grid. However, both methods result in fewer data points being collected and have minimal impact on IPS performance. Therefore, for this study, the edge grid factor is negligible and omitted from further analysis.
+	While taping and collecting data points, another factor that could interfere with the IPS collection presented itself. The specific area inside the grid also affected how many RSSI values were present. For instance, collecting data in the top left corner of the grid could produce different RSSI values compared to the center of the grid. This issue could be addressed by either (1) removing the edge grids and (2) collecting fewer data points in the edge grid. However, both methods result in fewer data points being collected and have minimal impact on IPS performance. This is based on the assumption that, from a user experience perspective, being located at the edge of a grid represents a transitional state between adjacent grids. Meaning that, if misclassification occurs, it typically involves the neighboring grid and the correct grid itself. Therefore, for this study, the edge grid factor is negligible and omitted from further analysis.
 	
 	\begin{figure}[htbp]
 		\centerline{\includegraphics[scale=0.21]{meth2.jpg}}
@@ -192,7 +196,9 @@
 	
 	To explore how different parameter settings impact model training, we systematically iterate through various configurations, training the model multiple times under each setting. The table below highlights the best results observed. Notably, the highest accuracy and the best AGT (Average Grid from Target) do not come from the same parameter setting.
 	
-	
+	\[ 
+	AGT = \sqrt{\text{offset}_X^2 + \text{offset}_Y^2} 
+	\]
 	
 	This suggests that these metrics prioritize different aspects of performance—optimizing for accuracy does not necessarily yield the best AGT and vice versa. This insight provides a key perspective as we analyze the results in more detail. Another thing of note is, according to fig. ~\ref{fig:AGT_dgrid_size}, from 7x7m grid size onwards, our best AGT measured across different model starts to plateau which could indicate diminishing returns from increasing experiment grid size.
 	
@@ -273,6 +279,10 @@
 	
 	Through this experiment, we find that a 7×7m grid size offers the best balance between accuracy and precision. Below demonstrates our Average Distance away from Target metric (ADT) which is a byproduct between AGT and diagonal length of used grid size. Utilizing 7x7m grid size minimizes error while remaining small enough for use in precision-dependent applications. However, it is important to note that these findings may not generalize to all IPS implementations in different environments. The results suggest that increasing grid size does not necessarily improve accuracy or even precision; in some cases, performance actually declines, as shown in the chart. This highlights the need for careful consideration when selecting a grid size based on the specific requirements of an IPS deployment.
 	
+	\[
+	ADT = AGT \times \sqrt{\text{grid\_width}^2 + \text{grid\_height}^2}.
+	\]
+	
 	
 	\begin{figure}[htbp]
 		\centerline{\includegraphics[scale=0.65]{image2.png}}
@@ -311,6 +321,11 @@
 		\bibitem{LRE5}N. A. Maung Maung, B. Y. Lwi and S. Thida, "An Enhanced RSS Fingerprinting-based Wireless Indoor Positioning using Random Forest Classifier," 2020 International Conference on Advanced Information Technologies (ICAIT), Yangon, Myanmar, 2020, pp. 59-63, doi: 10.1109/ICAIT51105.2020.9261776.
 		\bibitem{LRE6}P. Wongsekleo, L. Nakpaen, P. Cherntanomwong, and C. Pattiyanon, “Time Reduction for Collecting Fingerprint Data in Indoor Positioning Systems with Generated Synthetic Data by Ensemble Models and GANs”, in: Proc. 2024 19th International Joint Symposium on Artificial Intelligence and Natural Language Processing, Chonburi, Thailand, pp. 1–6, 610 2024. 
 		\bibitem{LRE7}L. Nakpaen, P. Wongsekleo, P. Cherntanomwong, and C. Pattiyanon, “Building RSSI-based Indoor Positioning Fingerprint Maps using Android-based Coordination”, in: Proceedings of 2024 19th International Joint Symposium on Artificial Intelligence and Natural Language processing (iSAI-NLP), Chonburi, Thailand, pp. 1–6, 2024.
+		\bibitem{add1}Z. Ezzati Khatab, V. Moghtadaiee and S. A. Ghorashi, "A fingerprint-based technique for indoor localization using fuzzy Least Squares Support Vector Machine," 2017 Iranian Conference on Electrical Engineering (ICEE), Tehran, Iran, 2017, pp. 1944-1949, doi: 10.1109/IranianCEE.2017.7985373. keywords: {Fingerprint recognition;Estimation error;Adaptive optics;fingerprinting;Least Squares Support Vector Machine;fuzzy logic;localization;Wi-Fi},
+		\bibitem{add2}Y. Freund and R. E. Schapire, “A Short Introduction to Boosting,” Journal of Japanese Society of Artificial Intelligence, Vol. 14, No. 5, 1999, pp. 771-780.
+		\bibitem{add3}J. Á. B. Link, P. Smith, N. Viol and K. Wehrle, "FootPath: Accurate map-based indoor navigation using smartphones," 2011 International Conference on Indoor Positioning and Indoor Navigation, Guimaraes, Portugal, 2011, pp. 1-8, doi: 10.1109/IPIN.2011.6071934.
+		\bibitem{add4}A. Satan, "Bluetooth-based indoor navigation mobile system," 2018 19th International Carpathian Control Conference (ICCC), Szilvasvarad, Hungary, 2018, pp. 332-337, doi: 10.1109/CarpathianCC.2018.8399651.
+		\bibitem{add5}L. Xuanmin, Q. Yang, Y. Wenle and Y. Fan, "An Improved Dynamic Prediction Fingerprint Localization Algorithm Based on KNN," 2016 Sixth International Conference on Instrumentation \& Measurement, Computer, Communication and Control (IMCCC), Harbin, China, 2016, pp. 289-292, doi: 10.1109/IMCCC.2016.107.
 		
 	\end{thebibliography}
 	\vspace{12pt}

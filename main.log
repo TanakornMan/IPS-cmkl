@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.2) (preloaded format=xelatex 2025.3.9)  19 JUL 2025 01:04
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.2) (preloaded format=xelatex 2025.3.9)  1 AUG 2025 19:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -925,7 +925,7 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/sc' will be
 
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3930) has occurred while \output is active []
 
 
 
@@ -941,50 +941,57 @@ File: ./figures/meth2.jpg Graphic file (type bmp)
 File: ./figures/meth3.jpg Graphic file (type bmp)
 <./figures/meth3.jpg>
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 File: ./figures/image14.jpg Graphic file (type bmp)
 <./figures/image14.jpg>
 
 
 [4]
-Overfull \hbox (16.95193pt too wide) in paragraph at lines 165--174
+Overfull \hbox (16.95193pt too wide) in paragraph at lines 169--178
  [][] 
  []
 
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 191.
+(Font)              scaled to size 10.0pt on input line 195.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 191.
+(Font)              scaled to size 7.3pt on input line 195.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.0pt on input line 191.
+(Font)              scaled to size 10.0pt on input line 195.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 7.3pt on input line 191.
+(Font)              scaled to size 7.3pt on input line 195.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.0pt on input line 191.
+(Font)              scaled to size 10.0pt on input line 195.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.3pt on input line 191.
+(Font)              scaled to size 7.3pt on input line 195.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 191.
+(Font)              scaled to size 10.0pt on input line 195.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 191.
+(Font)              scaled to size 7.3pt on input line 195.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.0pt on input line 191.
+(Font)              scaled to size 10.0pt on input line 195.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.3pt on input line 191.
+(Font)              scaled to size 7.3pt on input line 195.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 191.
+(Font)              scaled to size 10.0pt on input line 195.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.3pt on input line 191.
+(Font)              scaled to size 7.3pt on input line 195.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 191.
+(Font)              scaled to size 10.0pt on input line 195.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.3pt on input line 191.
+(Font)              scaled to size 7.3pt on input line 195.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.0pt on input line 191.
+(Font)              scaled to size 10.0pt on input line 195.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.3pt on input line 191.
+(Font)              scaled to size 7.3pt on input line 195.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 7.3pt on input line 191.
+(Font)              scaled to size 7.3pt on input line 195.
+
+
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
+(Font)              scaled to size 5.5pt on input line 200.
 File: ./figures/image3.png Graphic file (type bmp)
 <./figures/image3.png>
 File: ./figures/image1.png Graphic file (type bmp)
@@ -1000,8 +1007,6 @@ File: ./figures/image7.png Graphic file (type bmp)
 <./figures/image7.png>
 
 
-
-
 [5]
 File: ./figures/image2.png Graphic file (type bmp)
 <./figures/image2.png>
@@ -1010,21 +1015,21 @@ File: ./figures/image2.png Graphic file (type bmp)
 
 
 [6]
-Underfull \hbox (badness 2065) in paragraph at lines 306--307
+
+
+Underfull \hbox (badness 2065) in paragraph at lines 316--317
 \TU/TeXGyreTermesX(0)/m/n/8 Fingerprinting Methods for Indoor Localization,” in
  *Proc. 20th
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
+Underfull \hbox (badness 10000) in paragraph at lines 317--318
 \TU/TeXGyreTermesX(0)/m/n/8 based-IPS [Online]. Available: $[][][][][] [] [] []
  [][][][][][] [] [][][] [] [][][][][][][][][][] []
  []
 
 
-
-
-Underfull \hbox (badness 1776) in paragraph at lines 313--314
+Underfull \hbox (badness 1776) in paragraph at lines 323--324
 \TU/TeXGyreTermesX(0)/m/n/8 “Building RSSI-based Indoor Positioning Fingerprint
  Maps using
  []
@@ -1054,11 +1059,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 12058 strings out of 408640
- 236199 string characters out of 5744799
+ 12069 strings out of 408640
+ 236474 string characters out of 5744799
  689765 words of memory out of 5000000
- 34892 multiletter control sequences out of 15000+600000
- 591117 words of font info for 169 fonts, out of 8000000 for 9000
+ 34902 multiletter control sequences out of 15000+600000
+ 591125 words of font info for 170 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  85i,17n,133p,1845b,413s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
