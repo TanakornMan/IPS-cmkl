@@ -83,7 +83,7 @@
 	\end{enumerate}
 	
 	\section{Literature Review}
-	IPS have been extensively studied, with a range of techniques developed to address the challenge of accurate localization within indoor environment. Traditional methods of IPS like Wi-Fi RSSI fingerprinting have been enhanced through the use of various ML algorithms, for example, k-Nearest Neighbor (kNN) \cite{LRE1}, \cite{LRE2}, \cite{LRE6}, Random Forest (RF) \cite{LRE1}, \cite{LRE6}, \cite{LRE5}, Support Vector Machine (SVM) \cite{LRE1}, \cite{LRE2}, \cite{LRE6} and Multi-Layer Perceptron (MLP) \cite{LRE1}, \cite{LRE2}. Because positioning can be treated as a classification problem,  ML algorithms based on statistics and regression are well-suited for this task. With this in mind, the improvement of data collection is essential, as the quality of RSSI data points significantly impact on IPS accuracy. This could be done by training datasets with readings from different devices and collected at different times of the day, as noted in \cite{LRE3}. Several studies have proposed methods to refine dataset quality to better train fingerprinting algorithms used in positioning systems, such as combining Human Activity Recognition (HAR) using sensors with fingerprint collection \cite{LRE4} and the development of coordination-based Android applications \cite{LRE7}. These efforts have contributed modest improvements to IPS performance and created chances to develop IPS even more with additional data points. 
+	IPS have been extensively studied, with a range of techniques developed to address the challenge of accurate localization within indoor environment. Traditional methods of IPS like Wi-Fi RSSI fingerprinting have been enhanced through the use of various ML algorithms, for example, k-Nearest Neighbor (kNN) \cite{LRE1}, \cite{LRE2}, \cite{LRE6}, Random Forest (RF) \cite{LRE1}, \cite{LRE6}, \cite{LRE5}, Support Vector Machine (SVM) \cite{LRE1}, \cite{LRE2}, \cite{LRE6},~\cite{add1} and Multi-Layer Perceptron (MLP) \cite{LRE1}, \cite{LRE2}. Because positioning can be treated as a classification problem,  ML algorithms based on statistics and regression are well-suited for this task. With this in mind, the improvement of data collection is essential, as the quality of RSSI data points significantly impact on IPS accuracy. This could be done by training datasets with readings from different devices and collected at different times of the day, as noted in \cite{LRE3}. Several studies have proposed methods to refine dataset quality to better train fingerprinting algorithms used in positioning systems, such as combining Human Activity Recognition (HAR) using sensors with fingerprint collection \cite{LRE4} and the development of coordination-based Android applications \cite{LRE7}. These efforts have contributed modest improvements to IPS performance and created chances to develop IPS even more with additional data points. 
 	
 	Deep learning approaches, such as Graph Neural Networks (GNNs) \cite{LRE2} and Convolutional Neural Networks (CNNs) \cite{LRE4}, have demonstrated superior performance over traditional ML algorithms when a sufficient number of data points are available. Despite existing work, key environmental variables, such as the resolution of fingerprint grids and the spatial distribution of reference points, have not been comprehensively investigated. In this paper, we emphasize the critical role of these factors in IPS and aim to systematically analyze and identify the most effective configurations for multi-floor environments. Our objective is to enhance the accuracy, reliability, and overall performance of IPS by considering various influencing parameters and optimizing system design accordingly
 	
@@ -135,7 +135,7 @@
 	
 	By collecting 5 datapoints in a grid, the top left, top right, bottom left, bottom right and centre we can interpolate these RSSI values into a combined grid by averaging the values from the individual grids.
 	
-	For example, when creating a 2m x 2m grid, we do this by determining a value where the sum of distances between the RSSI values of the centres are all 0 in all four grids and then interpolating them. This method works as our grid sizes were 1m x 1m grids.
+	For example, when creating a 2m x 2m grid, we do this by determining a value where the sum of distances between the RSSI values of the centres are all 0 in all four grids and then interpolating them. This method works as our grid sizes were 1m x 1m grids. The reliability of these interpolated grids is consistent, as these interpolated grids are using the same dataset, just different conceptual grid sizes.
 	
 	\begin{figure}[htbp]
 		\centerline{\includegraphics[scale=0.5]{image14.jpg}}
@@ -197,7 +197,7 @@
 	To explore how different parameter settings impact model training, we systematically iterate through various configurations, training the model multiple times under each setting. The table below highlights the best results observed. Notably, the highest accuracy and the best AGT (Average Grid from Target) do not come from the same parameter setting.
 	
 	\[ 
-	AGT = \sqrt{\text{offset}_X^2 + \text{offset}_Y^2} 
+	AGT = \sqrt{\text{(offset\_X)}^2 + \text{(offset\_Y)}^2} 
 	\]
 	
 	This suggests that these metrics prioritize different aspects of performance—optimizing for accuracy does not necessarily yield the best AGT and vice versa. This insight provides a key perspective as we analyze the results in more detail. Another thing of note is, according to fig. ~\ref{fig:AGT_dgrid_size}, from 7x7m grid size onwards, our best AGT measured across different model starts to plateau which could indicate diminishing returns from increasing experiment grid size.
@@ -280,7 +280,7 @@
 	Through this experiment, we find that a 7×7m grid size offers the best balance between accuracy and precision. Below demonstrates our Average Distance away from Target metric (ADT) which is a byproduct between AGT and diagonal length of used grid size. Utilizing 7x7m grid size minimizes error while remaining small enough for use in precision-dependent applications. However, it is important to note that these findings may not generalize to all IPS implementations in different environments. The results suggest that increasing grid size does not necessarily improve accuracy or even precision; in some cases, performance actually declines, as shown in the chart. This highlights the need for careful consideration when selecting a grid size based on the specific requirements of an IPS deployment.
 	
 	\[
-	ADT = AGT \times \sqrt{\text{grid\_width}^2 + \text{grid\_height}^2}.
+	ADT = AGT \times \sqrt{\text{(grid\_width)}^2 + \text{(grid\_height)}^2}.
 	\]
 	
 	
@@ -298,6 +298,7 @@
 	
 	Fig.~\ref{fig:rf_agt_filter} and~\ref{fig:rf_agt_nofilter} suggest that filtering access points did not negatively impact the model's learning process. A comparison of training trajectories for the 1×1 grid experiment shows that the filtered model performed comparably to the unfiltered one, if not slightly better in terms of convergence. This suggests that reducing feature dimensionality not only accelerates training but may also make learning more stable.
 	
+	From our observations we can conclude that AGT and grid size have an inverse relationship on all models. As grid-size increases the AGT decreases on every machine learning model. After creating models of 1x1, 3x3, 5x5, 7x7, 9x9, 11x11, 13x13, 15x15, we ultimately determined that 7x7m was the best model that balanced precision and accuracy for our test environment. This benefitted us as we were able to use these new measurements as empirical data upon which we could determine the best balance between grid-size and AGT. However; we must acknowledge that these results may not generalize to all environments due to different WiFi signal behaviour and building structures. We also discovered that data filtration produced slightly better results with the BSSID filtered Model having an AGT of 15.16, and the non filtered Model having an AGT of 15.12. We also discovered that filtering the dataset had significant benefits to computational efficiency and efficacy for our project. As our hardware was a single NVIDIA 3080 RTX Ti GPU, filtering our data was one of the best ways to create a model under this hardware limitation. This reduction in feature dimensionality not only accelerates training but may also contribute to more stable learning.
 	
 
 	
@@ -307,6 +308,10 @@
 	In conclusion, this paper extends our previous work by refining the implementation of an IPS using a classification-based approach. Through our experiments across multiple grid sizes, we visualized the trade-offs between grid size and precision, showing that increasing grid size does not necessarily improve accuracy and may, in some cases, lead to worse performance. Our findings suggest that a 7×7m grid size offers the best balance between accuracy and precision, making it suitable for applications that require finer localization. However, we acknowledge that these results may not generalize to all environments due to variations in WiFi signal behavior and building structures.
 	
 	Additionally, we implemented a simple filtering method to limit the number of WiFi BSSID features, preventing excessive model complexity while maintaining comparable performance to an unfiltered approach. This method significantly reduced training time and computational requirements, allowing us to complete model training across multiple grid sizes efficiently. Our results indicate that reducing feature dimensionality not only accelerates training but may also contribute to more stable learning. To better assess IPS performance, we introduced two new evaluation metrics—Average Grid from Target (AGT) and Average Distance from Target (ADT)—which provide a clearer understanding of prediction deviation. Ultimately, our study highlights key considerations in IPS design, particularly in grid size selection and feature filtering, and offers insights for improving indoor positioning accuracy in practical implementations.
+	
+	To summarize, we believe that the usage of Average Grid from Target (AGT)
+	and Average Distance from Target (ADT) will be beneficial as it will help people with mapping clearer prediction deviation and allow them to better pick a grid-size that matches their intended need. We also believe that filtering the data for our models provides many benefits, specifically allowing the model to be more computationally efficient as well as allowing our model to get better results. A potential idea for future work is the implementation of On-Device Prediction for our Model. This would allow for less-latency and improved responsiveness. To increase the model’s accuracy it is also possible to take this work into a different direction by switching from treating the problem as discrete to continuous localisation model.
+	
 	
 	\begin{thebibliography}{00}
 		\bibitem{bgp1} A, Nessa, B. Adhikari, F. Hussain and X. N. Fernando, A Survey of Machine Learning for Indoor Positioning," in IEEE Access, vol. 8, pp. 214945-214965, 2020, doi: 10.1109/ACCESS.2020.3039271
@@ -325,7 +330,6 @@
 		\bibitem{add2}Y. Freund and R. E. Schapire, “A Short Introduction to Boosting,” Journal of Japanese Society of Artificial Intelligence, Vol. 14, No. 5, 1999, pp. 771-780.
 		\bibitem{add3}J. Á. B. Link, P. Smith, N. Viol and K. Wehrle, "FootPath: Accurate map-based indoor navigation using smartphones," 2011 International Conference on Indoor Positioning and Indoor Navigation, Guimaraes, Portugal, 2011, pp. 1-8, doi: 10.1109/IPIN.2011.6071934.
 		\bibitem{add4}A. Satan, "Bluetooth-based indoor navigation mobile system," 2018 19th International Carpathian Control Conference (ICCC), Szilvasvarad, Hungary, 2018, pp. 332-337, doi: 10.1109/CarpathianCC.2018.8399651.
-		\bibitem{add5}L. Xuanmin, Q. Yang, Y. Wenle and Y. Fan, "An Improved Dynamic Prediction Fingerprint Localization Algorithm Based on KNN," 2016 Sixth International Conference on Instrumentation \& Measurement, Computer, Communication and Control (IMCCC), Harbin, China, 2016, pp. 289-292, doi: 10.1109/IMCCC.2016.107.
 		
 	\end{thebibliography}
 	\vspace{12pt}
