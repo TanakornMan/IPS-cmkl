@@ -1,0 +1,406 @@
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.2) (preloaded format=xelatex 2025.3.9)  6 AUG 2025 01:36
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./samplepaper.tex
+(samplepaper.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(llncs.cls
+Document Class: llncs 2024/01/29 v2.24 
+ LaTeX document class for Lecture Notes in Computer Science
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count192
+\c@section=\count193
+\c@subsection=\count194
+\c@subsubsection=\count195
+\c@paragraph=\count196
+\c@subparagraph=\count197
+\c@figure=\count198
+\c@table=\count199
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+)
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
+Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
+\c@tracingmulticols=\count266
+\mult@box=\box52
+\multicol@leftmargin=\dimen142
+\c@unbalance=\count267
+\c@collectmore=\count268
+\doublecol@number=\count269
+\multicoltolerance=\count270
+\multicolpretolerance=\count271
+\full@width=\dimen143
+\page@free=\dimen144
+\premulticols=\dimen145
+\postmulticols=\dimen146
+\multicolsep=\skip51
+\multicolbaselineskip=\skip52
+\partial@page=\box53
+\last@line=\box54
+\mc@boxedresult=\box55
+\maxbalancingoverflow=\dimen147
+\mult@rightbox=\box56
+\mult@grightbox=\box57
+\mult@firstbox=\box58
+\mult@gfirstbox=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\c@minrows=\count272
+\c@columnbadness=\count273
+\c@finalcolumnbadness=\count274
+\last@try=\dimen148
+\multicolovershoot=\dimen149
+\multicolundershoot=\dimen150
+\mult@nat@firstbox=\box96
+\colbreak@box=\box97
+\mc@col@check@num=\count275
+)
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\aliascnt.sty
+Package: aliascnt 2018/09/07 v1.5 Alias counters (HO)
+)
+\c@chapter=\count276
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 379.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 380.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 381.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 382.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 383.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 384.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 385.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 386.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 387.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 388.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 389.
+LaTeX Info: Redefining \vec on input line 394.
+\tocchpnum=\dimen151
+\tocsecnum=\dimen152
+\tocsectotal=\dimen153
+\tocsubsecnum=\dimen154
+\tocsubsectotal=\dimen155
+\tocsubsubsecnum=\dimen156
+\tocsubsubsectotal=\dimen157
+\tocparanum=\dimen158
+\tocparatotal=\dimen159
+\tocsubparanum=\dimen160
+\@tempcntc=\count277
+\fnindent=\dimen161
+\c@@inst=\count278
+\c@@auth=\count279
+\c@auco=\count280
+\instindent=\dimen162
+\authrun=\box98
+\authorrunning=\toks17
+\tocauthor=\toks18
+\titrun=\box99
+\titlerunning=\toks19
+\toctitle=\toks20
+\c@theorem=\count281
+\c@case=\count282
+\c@conjecture=\count283
+\c@corollary=\count284
+\c@definition=\count285
+\c@example=\count286
+\c@exercise=\count287
+\c@lemma=\count288
+\c@note=\count289
+\c@problem=\count290
+\c@property=\count291
+\c@proposition=\count292
+\c@question=\count293
+\c@solution=\count294
+\c@remark=\count295
+\headlineindent=\dimen163
+) (C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+6.
+
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 106.
+
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\xetex.def
+File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
+))
+\Gin@req@height=\dimen164
+\Gin@req@width=\dimen165
+) (C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/comment\comment.sty
+\CommentStream=\write3
+
+Excluding comment 'comment')
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip53
+\multirow@cntb=\count296
+\multirow@dima=\skip54
+\bigstrutjot=\dimen166
+)
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-xet
+ex.def
+File: l3backend-xetex.def 2024-05-08 L3 backend support: XeTeX
+\g__graphics_track_int=\count297
+\l__pdf_internal_box=\box100
+\g__pdf_backend_annotation_int=\count298
+\g__pdf_backend_link_int=\count299
+) (samplepaper.aux)
+\openout1 = `samplepaper.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 49.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 49.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 49.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 49.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+9.
+
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+[1
+
+]
+Overfull \hbox (15.40186pt too wide) in paragraph at lines 68--70
+[]\T1/lmr/m/n/10 In our pre-vi-ous work, we im-ple-mented an IPS us-ing a large
+ grid size (16.75×15m)
+ []
+
+
+
+[2]
+File: ./figures/meth1.png Graphic file (type bmp)
+<./figures/meth1.png>
+
+
+[3]
+
+[4]
+File: ./figures/meth2.jpg Graphic file (type bmp)
+<./figures/meth2.jpg>
+
+Missing character: There is no — in font ec-lmr10!
+Missing character: There is no — in font ec-lmr10!
+
+
+[5]
+
+[6]
+Missing character: There is no — in font ec-lmr10!
+Missing character: There is no — in font ec-lmr10!
+File: ./figures/meth3.jpg Graphic file (type bmp)
+<./figures/meth3.jpg>
+Missing character: There is no ’ in font ec-lmr9!
+Missing character: There is no ’ in font ec-lmr9!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[7]
+Missing character: There is no ’ in font ec-lmr10!
+File: ./figures/image14.jpg Graphic file (type bmp)
+<./figures/image14.jpg>
+
+
+[8]
+Missing character: There is no — in font ec-lmr10!
+
+
+[9]
+File: ./figures/image3.png Graphic file (type bmp)
+<./figures/image3.png>
+File: ./figures/image1.png Graphic file (type bmp)
+<./figures/image1.png>
+File: ./figures/image5.png Graphic file (type bmp)
+<./figures/image5.png>
+
+Underfull \hbox (badness 6380) in paragraph at lines 228--228
+[]\T1/lmr/bx/n/9 Fig.7. \T1/lmr/m/n/9 RF Model ac-cu-racy with
+ []
+
+File: ./figures/image6.png Graphic file (type bmp)
+<./figures/image6.png>
+File: ./figures/image4.png Graphic file (type bmp)
+<./figures/image4.png>
+File: ./figures/image7.png Graphic file (type bmp)
+<./figures/image7.png>
+
+Underfull \hbox (badness 3701) in paragraph at lines 252--252
+[]\T1/lmr/bx/n/9 Fig.10. \T1/lmr/m/n/9 RF Model AGT with-out
+ []
+
+Missing character: There is no ’ in font ec-lmr10!
+
+
+[10]
+Missing character: There is no — in font ec-lmr10!
+File: ./figures/image2.png Graphic file (type bmp)
+<./figures/image2.png>
+
+
+[11]
+Missing character: There is no — in font ec-lmr10!
+Missing character: There is no ’ in font ec-lmr10!
+
+
+[12]
+Missing character: There is no — in font ec-lmr10!
+Missing character: There is no — in font ec-lmr10!
+Missing character: There is no ’ in font ec-lmr10!
+(samplepaper.bbl
+
+[13]
+Invalid UTF-8 byte or sequence at line 18 replaced by U+FFFD.
+
+Missing character: There is no � in font ec-lmr9!
+
+Underfull \hbox (badness 6300) in paragraph at lines 18--21
+[]\T1/lmr/m/n/9 Csik, D., Odry, ., Sarce-vic, P.: Com-par-i-son of rssi-based f
+in-ger-print-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--21
+\T1/lmr/m/n/9 ing meth-ods for in-door lo-cal-iza-tion. pp. 000273--000278 (09 
+2022).
+ []
+
+Invalid UTF-8 byte or sequence at line 43 replaced by U+FFFD.
+Missing character: There is no � in font ec-lmr9!
+
+Underfull \hbox (badness 3209) in paragraph at lines 43--47
+[]\T1/lmr/m/n/9 Link, J..B., Smith, P., Viol, N., Wehrle, K.: Foot-path: Ac-cu-
+rate map-
+ []
+
+
+Underfull \hbox (badness 3068) in paragraph at lines 43--47
+\T1/lmr/m/n/9 based in-door nav-i-ga-tion us-ing smart-phones. In: 2011 In-ter-
+na-tional Con-
+ []
+
+
+Underfull \hbox (badness 4595) in paragraph at lines 43--47
+\T1/lmr/m/n/9 fer-ence on In-door Po-si-tion-ing and In-door Nav-i-ga-tion. pp.
+ 1--8 (2011).
+ []
+
+
+Underfull \hbox (badness 2020) in paragraph at lines 62--65
+[]\T1/lmr/m/n/9 Nessa, A., Ad-hikari, B., Hus-sain, F., Fer-nando, X.N.: A sur-
+vey of ma-
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 72--75
+\T1/lmr/m/n/9 In-ter-na-tional Carpathian Con-trol Con-fer-ence (ICCC). pp. 332
+--337 (2018).
+ []
+
+
+
+[14]
+Underfull \hbox (badness 1603) in paragraph at lines 90--94
+\T1/lmr/m/n/9 er-ated syn-thetic data by en-sem-ble mod-els and gans. pp. 1--6 
+(11 2024).
+ []
+
+)
+
+[15] (samplepaper.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 2071 strings out of 408640
+ 31252 string characters out of 5744799
+ 424823 words of memory out of 5000000
+ 25119 multiletter control sequences out of 15000+600000
+ 592584 words of font info for 55 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 57i,10n,65p,1868b,334s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on samplepaper.pdf (15 pages).

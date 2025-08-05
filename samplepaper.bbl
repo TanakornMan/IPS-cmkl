@@ -1,0 +1,95 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{LRE4}
+Bibb√≤, L., Carotenuto, R., Della~Corte, F.: An overview of indoor localization
+  system for human activity recognition (har) in healthcare. Sensors
+  \textbf{22}(21) (2022). \doi{10.3390/s22218119},
+  \url{https://www.mdpi.com/1424-8220/22/21/8119}
+
+\bibitem{LRE3}
+Christodoulou, D.: Developing an indoor localisation and wayfinding app for a
+  university library.
+  \url{https://project-archive.inf.ed.ac.uk/ug4/20223034/ug4_proj.pdf} (2022)
+
+\bibitem{bg2}
+Csik, D., Odry, √., Sarcevic, P.: Comparison of rssi-based fingerprinting
+  methods for indoor localization. pp. 000273--000278 (09 2022).
+  \doi{10.1109/SISY56759.2022.10036270}
+
+\bibitem{add1}
+Ezzati~Khatab, Z., Moghtadaiee, V., Ghorashi, S.A.: A fingerprint-based
+  technique for indoor localization using fuzzy least squares support vector
+  machine. In: 2017 Iranian Conference on Electrical Engineering (ICEE). pp.
+  1944--1949 (2017). \doi{10.1109/IranianCEE.2017.7985373}
+
+\bibitem{add2}
+Freund, Y., Schapire, R.E.: A short introduction to boosting (1999),
+  \url{https://api.semanticscholar.org/CorpusID:9621074}
+
+\bibitem{bgp3}
+Gidey, H.T., Guo, X., Zhong, K., Li, L., Zhang, Y.: Ohettlal: An online
+  transfer learning method for fingerprint-based indoor positioning. Sensors
+  \textbf{22}(23) (2022). \doi{10.3390/s22239044},
+  \url{https://www.mdpi.com/1424-8220/22/23/9044}
+
+\bibitem{LRE1}
+Intachuen, B., Charoenphon, M., Mankhetwit, T.: Classification-based ips.
+  \\url{https://github.com/RinRin-32/Classification-based-IPS} (2024)
+
+\bibitem{add3}
+Link, J.√.B., Smith, P., Viol, N., Wehrle, K.: Footpath: Accurate map-based
+  indoor navigation using smartphones. In: 2011 International Conference on
+  Indoor Positioning and Indoor Navigation. pp.~1--8 (2011).
+  \doi{10.1109/IPIN.2011.6071934}
+
+\bibitem{LRE5}
+Maung~Maung, N.A., Lwi, B.Y., Thida, S.: An enhanced rss fingerprinting-based
+  wireless indoor positioning using random forest classifier. In: 2020
+  International Conference on Advanced Information Technologies (ICAIT). pp.
+  59--63 (2020). \doi{10.1109/ICAIT51105.2020.9261776}
+
+\bibitem{LRE7}
+Nakpaen, L., Wongsekleo, P., Cherntanomwong, P., Pattiyanon, C.: Building
+  rssi-based indoor positioning fingerprint maps using android-based
+  coordination. In: 2024 19th International Joint Symposium on Artificial
+  Intelligence and Natural Language Processing (iSAI-NLP). pp.~1--6 (2024).
+  \doi{10.1109/iSAI-NLP64410.2024.10799385}
+
+\bibitem{bgp1}
+Nessa, A., Adhikari, B., Hussain, F., Fernando, X.N.: A survey of machine
+  learning for indoor positioning. IEEE Access  \textbf{8},  214945--214965
+  (2020). \doi{10.1109/ACCESS.2020.3039271}
+
+\bibitem{bgp4}
+Obeidat, H., Shuaieb, W., Obeidat, O., Abd-Alhameed, R.: A review of indoor
+  localization techniques and wireless technologies. Wireless Personal
+  Communications  \textbf{119} (07 2021). \doi{10.1007/s11277-021-08209-5}
+
+\bibitem{add4}
+Satan, A.: Bluetooth-based indoor navigation mobile system. In: 2018 19th
+  International Carpathian Control Conference (ICCC). pp. 332--337 (2018).
+  \doi{10.1109/CarpathianCC.2018.8399651}
+
+\bibitem{bgp2}
+de~Souza~Mour√£o, H.A., de~Oliveira, H.A.B.F.: Indoor localization system using
+  fingerprinting and novelty detection for evaluation of confidence. Future
+  Internet  \textbf{14}(2) (2022). \doi{10.3390/fi14020051},
+  \url{https://www.mdpi.com/1999-5903/14/2/51}
+
+\bibitem{LRE2}
+Vishwakarma, R., Joshi, R.B., Mishra, S.: Indoorgnn: A graph neural network
+  based approach for¬†indoor localization using wifi rssi. In: Goyal, V.,
+  Kumar, N., Bhowmick, S.S., Goyal, P., Goyal, N., Kumar, D. (eds.) Big Data
+  and Artificial Intelligence. pp. 150--165. Springer Nature Switzerland, Cham
+  (2023)
+
+\bibitem{LRE6}
+Wongsekleo, P., Nakpaen, L., Cherntanomwong, P., Pattiyanon, C.: Time reduction
+  for collecting fingerprint data in indoor positioning systems with generated
+  synthetic data by ensemble models and gans. pp.~1--6 (11 2024).
+  \doi{10.1109/iSAI-NLP64410.2024.10799319}
+
+\end{thebibliography}
