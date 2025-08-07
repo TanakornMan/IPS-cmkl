@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.2) (preloaded format=xelatex 2025.3.9)  6 AUG 2025 01:36
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.2) (preloaded format=xelatex 2025.3.9)  7 AUG 2025 22:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -197,42 +197,80 @@ Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@dima=\skip54
 \bigstrutjot=\dimen166
 )
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen167
+\captionmargin=\dimen168
+\caption@leftmargin=\dimen169
+\caption@rightmargin=\dimen170
+\caption@width=\dimen171
+\caption@indent=\dimen172
+\caption@parindent=\dimen173
+\caption@hangindent=\dimen174
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\small \vskip \abovecap
+tionskip \sbox \@tempboxa {{\bfseries #1.} #2}\ifdim \wd \@tempboxa >\hsize {\b
+fseries #1.} #2\par \else \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@
+tempboxa \hfil }\fi \vskip \belowcaptionskip  on input line 1175.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count297
+\c@continuedfloat=\count298
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count299
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count300
+)
 (C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-xet
 ex.def
 File: l3backend-xetex.def 2024-05-08 L3 backend support: XeTeX
-\g__graphics_track_int=\count297
+\g__graphics_track_int=\count301
 \l__pdf_internal_box=\box100
-\g__pdf_backend_annotation_int=\count298
-\g__pdf_backend_link_int=\count299
+\g__pdf_backend_annotation_int=\count302
+\g__pdf_backend_link_int=\count303
 ) (samplepaper.aux)
 \openout1 = `samplepaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 49.
+(Font)              <7> on input line 50.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 49.
+(Font)              <5> on input line 50.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 49.
+(Font)              <9> on input line 50.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 49.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-9.
+(Font)              <6> on input line 50.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
+0.
 
 (C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -241,7 +279,7 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [1
 
 ]
-Overfull \hbox (15.40186pt too wide) in paragraph at lines 68--70
+Overfull \hbox (15.40186pt too wide) in paragraph at lines 69--71
 []\T1/lmr/m/n/10 In our pre-vi-ous work, we im-ple-mented an IPS us-ing a large
  grid size (16.75×15m)
  []
@@ -270,44 +308,43 @@ Missing character: There is no — in font ec-lmr10!
 Missing character: There is no — in font ec-lmr10!
 File: ./figures/meth3.jpg Graphic file (type bmp)
 <./figures/meth3.jpg>
-Missing character: There is no ’ in font ec-lmr9!
-Missing character: There is no ’ in font ec-lmr9!
+Missing character: There is no ’ in font ec-lmr10!
+Missing character: There is no ’ in font ec-lmr10!
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2735) has occurred while \output is active []
 
 
 
 [7]
 Missing character: There is no ’ in font ec-lmr10!
+Missing character: There is no ’ in font ec-lmr10!
+
+
+[8]
 File: ./figures/image14.jpg Graphic file (type bmp)
 <./figures/image14.jpg>
 
 
-[8]
-Missing character: There is no — in font ec-lmr10!
-
-
 [9]
+Missing character: There is no — in font ec-lmr10!
+Excluding 'comment' comment. Excluding 'comment' comment.
 File: ./figures/image3.png Graphic file (type bmp)
 <./figures/image3.png>
-File: ./figures/image1.png Graphic file (type bmp)
-<./figures/image1.png>
-File: ./figures/image5.png Graphic file (type bmp)
-<./figures/image5.png>
 
-Underfull \hbox (badness 6380) in paragraph at lines 228--228
-[]\T1/lmr/bx/n/9 Fig.7. \T1/lmr/m/n/9 RF Model ac-cu-racy with
+Overfull \hbox (26.77129pt too wide) in paragraph at lines 259--260
+ [][] 
  []
 
-File: ./figures/image6.png Graphic file (type bmp)
-<./figures/image6.png>
-File: ./figures/image4.png Graphic file (type bmp)
-<./figures/image4.png>
-File: ./figures/image7.png Graphic file (type bmp)
-<./figures/image7.png>
+File: ./figures/image1.png Graphic file (type bmp)
+<./figures/image1.png>
 
-Underfull \hbox (badness 3701) in paragraph at lines 252--252
-[]\T1/lmr/bx/n/9 Fig.10. \T1/lmr/m/n/9 RF Model AGT with-out
+Overfull \hbox (24.80028pt too wide) in paragraph at lines 266--267
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1383) in paragraph at lines 267--267
+[]\T1/lmr/m/n/10 Fig.6: |Model Av-er-age grid away
  []
 
 Missing character: There is no ’ in font ec-lmr10!
@@ -317,12 +354,24 @@ Missing character: There is no ’ in font ec-lmr10!
 Missing character: There is no — in font ec-lmr10!
 File: ./figures/image2.png Graphic file (type bmp)
 <./figures/image2.png>
+File: ./figures/image5.png Graphic file (type bmp)
+<./figures/image5.png>
 
+Underfull \hbox (badness 1867) in paragraph at lines 304--304
+[]\T1/lmr/m/n/10 Fig.8: |RF Model ac-cu-racy with
+ []
 
-[11]
+File: ./figures/image6.png Graphic file (type bmp)
+<./figures/image6.png>
+File: ./figures/image4.png Graphic file (type bmp)
+<./figures/image4.png>
+File: ./figures/image7.png Graphic file (type bmp)
+<./figures/image7.png>
 Missing character: There is no — in font ec-lmr10!
 Missing character: There is no ’ in font ec-lmr10!
 
+
+[11]
 
 [12]
 Missing character: There is no — in font ec-lmr10!
@@ -395,12 +444,12 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2071 strings out of 408640
- 31252 string characters out of 5744799
- 424823 words of memory out of 5000000
- 25119 multiletter control sequences out of 15000+600000
+ 3531 strings out of 408640
+ 59121 string characters out of 5744799
+ 454661 words of memory out of 5000000
+ 26571 multiletter control sequences out of 15000+600000
  592584 words of font info for 55 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,10n,65p,1868b,334s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,10n,77p,1868b,392s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on samplepaper.pdf (15 pages).

@@ -22,6 +22,7 @@
 \usepackage{url}
 \usepackage{comment}
 \usepackage{multirow}
+\usepackage{subcaption}
 %\usepackage{refcheck}
 \begin{document}
 %
@@ -128,9 +129,22 @@ Through this analysis, two key factors emerged as the most influential in determ
 \end{figure}
 
 \subsection{Extraction of Environmental Factors and Datasets}
-The identification of the two factors in the previous section allows us to make adjustments to find the optimal setting for these values to maximize the IPS performance.
+The identification of the two factors in the previous section allows us to make adjustments to find the optimal setting for these values to maximize the IPS performance. 
+To support this evaluation, we define two key metrics used throughout this study: Average Grid from Target (AGT) and Average Distance from Target (ADT).
 
-\paragraph{Grid Size Requirements and Datasets} Grid size influences IPS performance. Its size influences the accuracy of the algorithm, as well as the ease of data collection. The following study [4] ran a model with grid sizes of 16.75 x 15m and reported high IPS performance in terms of AGT, as the larger the area, the more likely you’ll estimate the correct grid. The trade off was that the ADT was significantly lower, as there was a deviation from the actual point. This suggests that by minimising the grid size, we can achieve a higher precision. However the lower the precision, the harder the data collection process. 
+\begin{equation}
+	AGT = \sqrt{(\Delta X)^2 + (\Delta Y)^2}
+	\label{eq:agt}
+\end{equation}
+$\Delta X$ and $\Delta Y$ represent horizontal and vertical axes, respectively. This formulation stems from treating each grid as a discrete unit within the map. Given that the grid layout inherently defines the number of divisions along the $X$ and $Y$ axes, offset can be directly computed as the distance between predicted and actual grid positions. Treating offsets as distance units, the measure naturally adapts to different grid sizes, providing a straightforward means to visualize performance and a standardized measure across different grid sizes.
+
+\begin{equation}
+	ADT = AGT \times \sqrt{{g_w}^2 + {g_h}^2}
+	\label{eq:adt}
+\end{equation}
+$g_w$ and $g_h$ denote the grid width and height, respectively. While AGT captures classification error in grid labels, ADT introduces a precision-accuracy trade-off by scaling AGT with the grid’s diagonal distance. Low AGT may correspond to poor precision if grid sizes are large. The use of the full diagonal length introduces a penalty to grid merging: rather than calculating precise physical distances, ADT provides a practical and realistic means of visualizing the precision-accuracy trade-off while not being constrained by traditional GPS accuracy, which suffers indoors.
+
+\paragraph{Grid Size Requirements and Datasets} Grid size influences IPS performance. Its size influences the accuracy of the algorithm, as well as the ease of data collection. The following study \cite{LRE1} ran a model with grid sizes of 16.75 x 15m and reported high IPS performance in terms of AGT, as the larger the area, the more likely you’ll estimate the correct grid. The trade off was that the ADT was significantly lower, as there was a deviation from the actual point. This suggests that by minimising the grid size, we can achieve a higher precision. However the lower the precision, the harder the data collection process. 
 If we were to collect data for varying grid sizes with the taping method it would be extremely difficult as taping and re-taping the area multiple times is not feasible for a small team. Instead, we have formulated an approach through the usage of RSSI value interpolation. This allows us to form larger grid sizes from combining smaller grids. We use the data collected from small grids i.e. (1m x 1m) and then aggregate them to construct larger grids by interpolating RSSI values from the combined smaller grids.
 
 By collecting 5 datapoints in a grid, the top left, top right, bottom left, bottom right and centre we can interpolate these RSSI values into a combined grid by averaging the values from the individual grids.
@@ -149,7 +163,7 @@ We also considered implementing white-listing of access points within the target
 
 
 \section{Result}
-\vspace{-30pt}
+\vspace{-15pt}
 \begin{table}[htbp]
 	\caption{Total BSSID Before and After Filtering}
 	\label{tab:bssid_counts}
@@ -164,7 +178,7 @@ We also considered implementing white-listing of access points within the target
 		\hline
 	\end{tabular}
 \end{table}
-\vspace{-30pt}
+\vspace{-15pt}
 \begin{table}[htbp]
 	\caption{Total Unique Grids Present and Used for Each Grid Size Experiment}
 	\label{tab:grid_size_variations}
@@ -179,7 +193,7 @@ We also considered implementing white-listing of access points within the target
 		\hline
 	\end{tabular}
 \end{table}
-\vspace{-30pt}
+\vspace{-15pt}
 \begin{table}[htbp]
 	\caption{Total True Unique Grids by Floor (1x1 Grid Size)}
 	\label{tab:true_unique_grid}
@@ -199,27 +213,89 @@ The dataset used in this study consisted of 12,640 data points collected across 
 
 To explore how different parameter settings impact model training, we systematically iterate through various configurations, training the model multiple times under each setting. The table below highlights the best results observed. Notably, the highest accuracy and the best AGT (Average Grid from Target) do not come from the same parameter setting.
 
-\begin{equation}
-	AGT = \sqrt{(offset\_X)^2 + (offset\_Y)^2} 
-\end{equation}
+%\begin{equation}
+%	AGT = \sqrt{(offset\_X)^2 + (offset\_Y)^2} 
+%\end{equation}
 
 
 This suggests that these metrics prioritize different aspects of performance—optimizing for accuracy does not necessarily yield the best AGT and vice versa. This insight provides a key perspective as we analyze the results in more detail. Another thing of note is, according to fig. ~\ref{fig:AGT_dgrid_size}, from 7x7m grid size onwards, our best AGT measured across different model starts to plateau which could indicate diminishing returns from increasing experiment grid size.
 
-\begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.65]{image3.png}}
-	\caption{Model Accuracy on Different grid size}
-	\label{fig:acc_dgird_size}
+\begin{comment}
+	\begin{figure}
+		\centering
+		\begin{subfigure}{0.4\textheight}
+			\centerline{\includegraphics[scale=0.65]{image3.png}}
+			\caption{Model Accuracy on Different grid size}
+			\label{fig:acc_dgird_size}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.4\textheight}
+			\centerline{\includegraphics[scale=0.65]{image1.png}}
+			\caption{Model Average grid away from Target on Different grid size}
+			\label{fig:AGT_dgrid_size}
+		\end{subfigure}
+	\end{figure}
+\end{comment}
+
+\begin{comment}
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.8]{image3.png}
+		\caption{Model Accuracy on Different grid size}
+		\label{fig:acc_dgird_size}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.65]{image1.png}
+		\caption{Model Average grid away from Target on Different grid size}
+		\label{fig:AGT_dgrid_size}
+	\end{figure}
+\end{comment}
+
+\begin{figure}[hbt!]
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{image3.png}
+		\caption{Model Accuracy on Different grid size}
+		\label{fig:acc_dgird_size}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{image1.png}
+		\caption{Model Average grid away from Target on Different grid size}
+		\label{fig:AGT_dgrid_size}
+	\end{minipage}
 \end{figure}
 
+\vspace{-30pt}
+\section{Discussion}
+\vspace{-10pt}
+By conducting our experiment across multiple grid sizes, we can visualize the tradeoff between grid size and precision. To quantify this, we calculate the average grid deviation from the target and multiply it by each grid size’s diagonal length, as shown in fig. \ref{fig:AGT_dgrid_size}. It illustrates the expected deviation in predictions when a model is trained on a specific grid size, should an error occur.
+
+While a 15x15m grid size performs well on the graph, it inherently limits accuracy to that resolution. In cases where predictions are correct, the location remains constrained within a 15×15m area, which may not be suitable for applications requiring higher precision—such as those needing to pinpoint areas smaller than this grid size.
+
+Through this experiment, we find that a 7x7m grid size offers the best balance between accuracy and precision. Below demonstrates our Average Distance away from Target metric (ADT) which is a byproduct between AGT and diagonal length of used grid size. Utilizing 7x7m grid size minimizes error while remaining small enough for use in precision-dependent applications. However, it is important to note that these findings may not generalize to all IPS implementations in different environments. The results suggest that increasing grid size does not necessarily improve accuracy or even precision; in some cases, performance actually declines, as shown in the chart. This highlights the need for careful consideration when selecting a grid size based on the specific requirements of an IPS deployment.
+
+
+%\begin{equation}
+%	ADT = AGT \times \sqrt{(grid\_width)^2 + (grid\_height)^2}.
+%\end{equation}
+
+
+
 \begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.65]{image1.png}}
-	\caption{Model Average grid away from Target on Different grid size}
-	\label{fig:AGT_dgrid_size}
+	\centerline{\includegraphics[scale=0.65]{image2.png}}
+	\caption{Average Distance Error Across Different Grid Resolutions}
+	\label{fig:Avg_dis_err}
 \end{figure}
 
 
-\begin{figure*}[hbt!]
+
+Training an IPS model involves significant computational challenges, particularly when dealing with high-dimensional feature spaces. In our experiment, we implemented a simple Wi-Fi access point filtering approach, selecting only access points containing specific identifiers in their names. This drastically reduced the number of access points used as features, making the training process more efficient.
+
+\begin{figure}[hbt!]
 	\centering
 	% First row
 	\begin{minipage}{0.45\textwidth}
@@ -252,35 +328,11 @@ This suggests that these metrics prioritize different aspects of performance—o
 		\caption{RF Model AGT without BSSID filtering (1x1)}
 		\label{fig:rf_agt_nofilter}
 	\end{minipage}
-\end{figure*}
-
-\section{Discussion}
-\vspace{-10pt}
-By conducting our experiment across multiple grid sizes, we can visualize the tradeoff between grid size and precision. To quantify this, we calculate the average grid deviation from the target and multiply it by each grid size’s diagonal length, as shown in fig. \ref{fig:AGT_dgrid_size}. It illustrates the expected deviation in predictions when a model is trained on a specific grid size, should an error occur.
-
-While a 15×15m grid size performs well on the graph, it inherently limits accuracy to that resolution. In cases where predictions are correct, the location remains constrained within a 15×15m area, which may not be suitable for applications requiring higher precision—such as those needing to pinpoint areas smaller than this grid size.
-
-Through this experiment, we find that a 7×7m grid size offers the best balance between accuracy and precision. Below demonstrates our Average Distance away from Target metric (ADT) which is a byproduct between AGT and diagonal length of used grid size. Utilizing 7x7m grid size minimizes error while remaining small enough for use in precision-dependent applications. However, it is important to note that these findings may not generalize to all IPS implementations in different environments. The results suggest that increasing grid size does not necessarily improve accuracy or even precision; in some cases, performance actually declines, as shown in the chart. This highlights the need for careful consideration when selecting a grid size based on the specific requirements of an IPS deployment.
-
-\begin{equation}
-	ADT = AGT \times \sqrt{(grid\_width)^2 + (grid\_height)^2}.
-\end{equation}
-
-
-
-\begin{figure}[htbp]
-	\centerline{\includegraphics[scale=0.65]{image2.png}}
-	\caption{Average Distance Error Across Different Grid Resolutions}
-	\label{fig:Avg_dis_err}
 \end{figure}
-
-
-
-Training an IPS model involves significant computational challenges, particularly when dealing with high-dimensional feature spaces. In our experiment, we implemented a simple Wi-Fi access point filtering approach, selecting only access points containing specific identifiers in their names. This drastically reduced the number of access points used as features, making the training process more efficient.
 
 While the filtering method we applied was relatively simple, it had a surprisingly large impact on computational feasibility. Observing fig.~\ref{fig:rf_acc_filter} and~\ref{fig:rf_acc_nofilter}, by reducing the number of BSSID features from 1799 to 378, we were able to train models across a wide range of grid sizes (1×1 to 15×15) without overwhelming our hardware. In contrast, attempting to train on the full, unfiltered set quickly became impractical—our RTX 3080 Ti struggled even with the smallest grid size. Although we didn’t record exact runtimes, the difference in resource demands was stark. This raises questions about the actual utility of the full feature set and suggests that a more systematic study of feature selection or dimensionality reduction could be worthwhile in future works.
 
-Fig.~\ref{fig:rf_agt_filter} and~\ref{fig:rf_agt_nofilter} suggest that filtering access points did not negatively impact the model's learning process. A comparison of training trajectories for the 1×1 grid experiment shows that the filtered model performed comparably to the unfiltered one, if not slightly better in terms of convergence. This suggests that reducing feature dimensionality not only accelerates training but may also make learning more stable.
+Fig.~\ref{fig:rf_agt_filter} and~\ref{fig:rf_agt_nofilter} suggest that filtering access points did not negatively impact the model's learning process. A comparison of training trajectories for the 1x1 grid experiment shows that the filtered model performed comparably to the unfiltered one, if not slightly better in terms of convergence. This suggests that reducing feature dimensionality not only accelerates training but may also make learning more stable.
 
 From our observations we can conclude that AGT and grid size have an inverse relationship on all models. As grid-size increases the AGT decreases on every machine learning model. After creating models of 1x1, 3x3, 5x5, 7x7, 9x9, 11x11, 13x13, 15x15, we ultimately determined that 7x7m was the best model that balanced precision and accuracy for our test environment. This benefitted us as we were able to use these new measurements as empirical data upon which we could determine the best balance between grid-size and AGT. However; we must acknowledge that these results may not generalize to all environments due to different WiFi signal behaviour and building structures. We also discovered that data filtration produced slightly better results with the BSSID filtered Model having an AGT of 15.16, and the non filtered Model having an AGT of 15.12. We also discovered that filtering the dataset had significant benefits to computational efficiency and efficacy for our project. As our hardware was a single NVIDIA 3080 RTX Ti GPU, filtering our data was one of the best ways to create a model under this hardware limitation. This reduction in feature dimensionality not only accelerates training but may also contribute to more stable learning.
 
