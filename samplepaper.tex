@@ -23,6 +23,7 @@
 \usepackage{comment}
 \usepackage{multirow}
 \usepackage{subcaption}
+\usepackage{caption}
 %\usepackage{refcheck}
 \begin{document}
 %
@@ -59,7 +60,7 @@ Indoor positioning systems are a relatively new positioning tool that aims to su
 %
 \newpage
 \section{Introduction}
-\vspace{-10pt}
+%\vspace{-10pt}
 Indoor Positioning Systems (IPS) aim to help users navigate effectively inside of buildings or enclosed areas. This type of navigation proves difficult to create when using common methods for navigation. The most widely used system for navigation is the Global Navigation Satellite System (GNSS) which uses a combination of satellites and ground control stations that aim to calculate ground positions by trilateration. The most well-known GNSS is called the Global Positioning System (GPS). The usage of GPS comes with many caveats as the accuracy of the GPS diminishes when it is used indoors due to the fact that most buildings are built from dense materials like concrete and various metals, which the low power signal from the satellite can not penetrate. The usage of GPS often results in scattering, shadowing, blind spots and signal attenuation, which noticeably affects the accuracy\cite{bgp1}. That is why there have been various methods created for IPS to address the shortcomings of GNSS as well as provide accurate navigation in areas that may not be able to use GNSS
 
 There have been many methods developed for the usage of IPS. One of the most well-known and commonly used methods is trilateration. Trilateration works by measuring signal strength in relation to the distance from the transmitter via Received Signal Strength Indicator (RSSI) fingerprinting \cite{bg2}. The fingerprinting technique consists of two phases. An initial offline phase, and the following online phase. In the offline phase, radio maps are created by collecting RSSI data. The data is then passed onto the online phase where end devices calculate their position based on the coordinates assigned to each RSSI-emitting device, such as Bluetooth Low Energy~(BLE) devices. These BLE devices are often used for RSSI fingerprinting due to its low power consumption and ease of deployment. A mobile device can then be used to track a user's location by triangulating the user's device using the distance between the mobile device and the different BLEs. This is a good method as most RSSI signatures are distinct; however, there are shortcomings with this method. An example of a shortcoming is that RSSI is affected by environmental noise, which can cause errors in location estimation\cite{bgp2}. Another shortcoming is that some buildings may be unsuitable for BLEs and BLEs require precision placement to be effective.
@@ -78,7 +79,7 @@ Building on this prior work, this paper further explores the use of classificati
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Literature Review}
-\vspace{-10pt}
+%\vspace{-10pt}
 IPS have been extensively studied, with a range of techniques developed to address the challenge of accurate localization within indoor environment. Traditional methods of IPS like Wi-Fi RSSI fingerprinting have been enhanced through the use of various ML algorithms, for example, k-Nearest Neighbor (kNN) \cite{LRE1}, \cite{LRE2}, \cite{LRE6}, Random Forest (RF) \cite{LRE1}, \cite{LRE6}, \cite{LRE5}, Support Vector Machine (SVM) \cite{LRE1}, \cite{LRE2}, \cite{LRE6},~\cite{add1} and Multi-Layer Perceptron (MLP) \cite{LRE1}, \cite{LRE2}. Because positioning can be treated as a classification problem,  ML algorithms based on statistics and regression are well-suited for this task. With this in mind, the improvement of data collection is essential, as the quality of RSSI data points significantly impact on IPS accuracy. This could be done by training datasets with readings from different devices and collected at different times of the day, as noted in \cite{LRE3}. Several studies have proposed methods to refine dataset quality to better train fingerprinting algorithms used in positioning systems, such as combining Human Activity Recognition (HAR) using sensors with fingerprint collection \cite{LRE4} and the development of coordination-based Android applications \cite{LRE7}. These efforts have contributed modest improvements to IPS performance and created chances to develop IPS even more with additional data points. 
 
 Deep learning approaches, such as Graph Neural Networks (GNNs) \cite{LRE2} and Convolutional Neural Networks (CNNs) \cite{LRE4}, have demonstrated superior performance over traditional ML algorithms when a sufficient number of data points are available. Despite existing work, key environmental variables, such as the resolution of fingerprint grids and the spatial distribution of reference points, have not been comprehensively investigated. In this paper, we emphasize the critical role of these factors in IPS and aim to systematically analyze and identify the most effective configurations for multi-floor environments. Our objective is to enhance the accuracy, reliability, and overall performance of IPS by considering various influencing parameters and optimizing system design accordingly
@@ -92,7 +93,7 @@ Deep learning approaches, such as Graph Neural Networks (GNNs) \cite{LRE2} and C
 \end{figure}
 
 \section{Research Methodology}
-\vspace{-10pt}
+%\vspace{-15pt}
 This paper adopts a systematic and empirical research methodology with the aim of identifying environmental factors that influence the IPS. This methodology is illustrated in Fig.~\ref{fig:graph_step}.
 
 The figure illustrates the research methodology used in this paper. It is structured into four parts (1) Identification of environmental factors, (2) Extraction of data that is related to the factors, (3) Training of fingerprint matching models, and~(4) Analyzing and reviewing the results. The research began by carefully investigating and identifying environmental factors that may potentially interfere with the IPS performance. This was done through researching research papers that have investigated similar things as well as analysing the area in order to find key components that were likely to cause interference. After that, we analysed the data we collected and then generated fingerprint databases. From investigating the data, we decided to create two datasets, one with different grid sizes and the other with varying numbers of points of reference. These datasets were then used to train various ML Models which ran a different algorithm, including KNN, SVM, RF, MLP, XGBoost, XGBoost-based RF (XBGRF). We chose these models because they are known for traditional classification tasks and are easily accessible. The goal is to simplify IPS and validate their viability without relying on complex techniques. Grid size was selected as a key variable in our investigation as we want to determine and measure the extent to which different grid sizes affect our results as well as find the optimal gridsize. Finally the accuracy of the location prediction created by these models were analyzed and evaluated against ground truth data.
@@ -103,7 +104,7 @@ To begin collecting data which will be used to construct our fingerprint databas
 This tape serves as reference points for our data collection device, a mobile phone, measuring RSSI values from nearby APs in the area. Naturally, the size and number of grids directly affects the number of collected datapoints. The larger the grid size the fewer data points are present. However; larger grid-sizes also have benefits as it may help reduce localisation errors and make it easier for the models to estimate the correct grid.
 
 
-One challenge encountered during the taping process was the varying layout across different areas. Certain sections of the floor did not feature uniform tiling, with discrepancies in elevation and angle. This issue was effectively mitigated by constructing grids based on previously mapped reference points. Although minor measurement inaccuracies may exist, these are considered negligible for the purposes of this study.
+An issue that presented itself was one concerning the different layout and tiling across different areas. Certain floors had distinct tiling with different elevation and angles. This was mitigated by constructing grids on previous reference points. Although minor measurement inaccuracies may exist, they are negligible for the purpose of this study.
 
 While taping and collecting data points, another factor that could interfere with the IPS collection presented itself. The specific area inside the grid also affected how many RSSI values were present. For instance, collecting data in the top left corner of the grid could produce different RSSI values compared to the center of the grid. This issue could be addressed by either (1) removing the edge grids and (2) collecting fewer data points in the edge grid. However, both methods result in fewer data points being collected and have minimal impact on IPS performance. This is based on the assumption that, from a user experience perspective, being located at the edge of a grid represents a transitional state between adjacent grids. Meaning that, if misclassification occurs, it typically involves the neighboring grid and the correct grid itself. Therefore, for this study, the edge grid factor is negligible and omitted from further analysis.
 
@@ -163,22 +164,61 @@ We also considered implementing white-listing of access points within the target
 
 
 \section{Result}
-\vspace{-15pt}
 \begin{table}[htbp]
-	\caption{Total BSSID Before and After Filtering}
-	\label{tab:bssid_counts}
 	\centering
-	\begin{tabular}{|l|l|l|}
-		\hline
-		\multicolumn{2}{|l|}{\textbf{Collected Data Points}} & \textbf{\# BSSID} \\
-		\hline
-		\multirow{2}{*}{\textbf{Filtering Features}} & Non-Filtered & 1799 \\
-		\cline{2-3}
-		& Filtered & 378 \\
-		\hline
-	\end{tabular}
+	\begin{minipage}{0.38\textwidth}
+		\centering
+		\caption{Total True Unique Grids by Floor (1x1 Grid Size)
+		\label{tab:true_unique_grid}}
+		\vspace{-10pt}
+		\begin{tabular}{|l|l|l|} 
+			\hline
+			& \multicolumn{2}{l|}{\textbf{Floor}}  \\ 
+			\hline
+			\textbf{1x1 Grid Size} & 1st & 2nd                            \\ 
+			\hline
+			\textbf{Grid Count}    & 309 & 174                            \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\hspace{10pt}
+	%\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\caption{Total BSSID Before and After Filtering}
+		\label{tab:bssid_counts}
+		\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\multicolumn{2}{|l|}{\textbf{Collected Data Points}} & \textbf{\# BSSID} \\
+			\hline
+			\multirow{2}{*}{\textbf{Filtering Features}} & Non-Filtered & 1799 \\
+			\cline{2-3}
+			& Filtered & 378 \\
+			\hline
+		\end{tabular}
+	\end{minipage}
 \end{table}
-\vspace{-15pt}
+
+\begin{comment}
+	\vspace{-10pt}
+	\begin{table}[htbp]
+		\caption{Total BSSID Before and After Filtering}
+		\label{tab:bssid_counts}
+		\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\multicolumn{2}{|l|}{\textbf{Collected Data Points}} & \textbf{\# BSSID} \\
+			\hline
+			\multirow{2}{*}{\textbf{Filtering Features}} & Non-Filtered & 1799 \\
+			\cline{2-3}
+			& Filtered & 378 \\
+			\hline
+		\end{tabular}
+	\end{table}
+\end{comment}
+
+\vspace{-10pt}
 \begin{table}[htbp]
 	\caption{Total Unique Grids Present and Used for Each Grid Size Experiment}
 	\label{tab:grid_size_variations}
@@ -193,21 +233,25 @@ We also considered implementing white-listing of access points within the target
 		\hline
 	\end{tabular}
 \end{table}
-\vspace{-15pt}
-\begin{table}[htbp]
-	\caption{Total True Unique Grids by Floor (1x1 Grid Size)}
-	\label{tab:true_unique_grid}
-	\centering
-	\begin{tabular}{|l|l|l|} 
-		\hline
-		& \multicolumn{2}{l|}{\textbf{Floor}}  \\ 
-		\hline
-		\textbf{1x1 Grid Size} & 1st & 2nd                            \\ 
-		\hline
-		\textbf{Grid Count}    & 309 & 174                            \\
-		\hline
-	\end{tabular}
-\end{table}
+
+\begin{comment}
+	\vspace{-5pt}
+	\begin{table}[htbp]
+		\caption{Total True Unique Grids by Floor (1x1 Grid Size)}
+		\label{tab:true_unique_grid}
+		\centering
+		\begin{tabular}{|l|l|l|} 
+			\hline
+			& \multicolumn{2}{l|}{\textbf{Floor}}  \\ 
+			\hline
+			\textbf{1x1 Grid Size} & 1st & 2nd                            \\ 
+			\hline
+			\textbf{Grid Count}    & 309 & 174                            \\
+			\hline
+		\end{tabular}
+	\end{table}
+\end{comment}
+
 
 The dataset used in this study consisted of 12,640 data points collected across 1x1m\textsuperscript{2} grids distributed among the floors of our experimental setup. By filtering the available BSSID to utilize only SSID with specific identifiers, we end up with 378 unique BSSID, spanning across the 2 floors of the experiment. A rationale behind filtering WiFi signals in this experiment is to determine whether only easily known BSSID can be utilized in implementing IPS. 9019 data points were collected on 6th floor and 3621 data points were collected on 7th floor.
 
@@ -253,6 +297,7 @@ This suggests that these metrics prioritize different aspects of performance—o
 	\end{figure}
 \end{comment}
 
+\vspace{-10pt}
 \begin{figure}[hbt!]
 	\begin{minipage}{0.45\textwidth}
 		\centering
@@ -271,7 +316,7 @@ This suggests that these metrics prioritize different aspects of performance—o
 
 \vspace{-30pt}
 \section{Discussion}
-\vspace{-10pt}
+%\vspace{-10pt}
 By conducting our experiment across multiple grid sizes, we can visualize the tradeoff between grid size and precision. To quantify this, we calculate the average grid deviation from the target and multiply it by each grid size’s diagonal length, as shown in fig. \ref{fig:AGT_dgrid_size}. It illustrates the expected deviation in predictions when a model is trained on a specific grid size, should an error occur.
 
 While a 15x15m grid size performs well on the graph, it inherently limits accuracy to that resolution. In cases where predictions are correct, the location remains constrained within a 15×15m area, which may not be suitable for applications requiring higher precision—such as those needing to pinpoint areas smaller than this grid size.
@@ -283,7 +328,7 @@ Through this experiment, we find that a 7x7m grid size offers the best balance b
 %	ADT = AGT \times \sqrt{(grid\_width)^2 + (grid\_height)^2}.
 %\end{equation}
 
-
+\vspace{-10pt}
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=0.65]{image2.png}}
@@ -334,14 +379,14 @@ While the filtering method we applied was relatively simple, it had a surprising
 
 Fig.~\ref{fig:rf_agt_filter} and~\ref{fig:rf_agt_nofilter} suggest that filtering access points did not negatively impact the model's learning process. A comparison of training trajectories for the 1x1 grid experiment shows that the filtered model performed comparably to the unfiltered one, if not slightly better in terms of convergence. This suggests that reducing feature dimensionality not only accelerates training but may also make learning more stable.
 
-From our observations we can conclude that AGT and grid size have an inverse relationship on all models. As grid-size increases the AGT decreases on every machine learning model. After creating models of 1x1, 3x3, 5x5, 7x7, 9x9, 11x11, 13x13, 15x15, we ultimately determined that 7x7m was the best model that balanced precision and accuracy for our test environment. This benefitted us as we were able to use these new measurements as empirical data upon which we could determine the best balance between grid-size and AGT. However; we must acknowledge that these results may not generalize to all environments due to different WiFi signal behaviour and building structures. We also discovered that data filtration produced slightly better results with the BSSID filtered Model having an AGT of 15.16, and the non filtered Model having an AGT of 15.12. We also discovered that filtering the dataset had significant benefits to computational efficiency and efficacy for our project. As our hardware was a single NVIDIA 3080 RTX Ti GPU, filtering our data was one of the best ways to create a model under this hardware limitation. This reduction in feature dimensionality not only accelerates training but may also contribute to more stable learning.
+From our observations we can conclude that AGT and grid size have an inverse relationship on all models. As grid-size increases the AGT decreases on every machine learning model. After creating models of 1x1 to 15x15 in increments of 2x2, we determined that 7x7m was the best model that balanced precision and accuracy for our test environment. This benefitted us as we were able to use these new measurements as empirical data upon which we could determine the best balance between grid-size and AGT. However; we must acknowledge that these results may not generalize to all environments due to different WiFi signal behaviour and building structures. Data filtration also aided in producing slightly better results with the BSSID filtered Model having an AGT of 15.16, and the non filtered Model having an AGT of 15.12. Filtering the dataset also had significant benefits to computational efficiency and efficacy for our project. For a single NVIDIA 3080 RTX Ti GPU, filtering our data was one of the best ways to create a model under this hardware limitation. This reduction in feature dimensionality not only accelerates training but may also contribute to more stable learning.
 
 
 
 
 
 \section{Conclusion}
-\vspace{-10pt}
+%\vspace{-9pt}
 In conclusion, this paper extends our previous work by refining the implementation of an IPS using a classification-based approach. Through our experiments across multiple grid sizes, we visualized the trade-offs between grid size and precision, showing that increasing grid size does not necessarily improve accuracy and may, in some cases, lead to worse performance. Our findings suggest that a 7×7m grid size offers the best balance between accuracy and precision, making it suitable for applications that require finer localization. However, we acknowledge that these results may not generalize to all environments due to variations in WiFi signal behavior and building structures.
 
 Additionally, we implemented a simple filtering method to limit the number of WiFi BSSID features, preventing excessive model complexity while maintaining comparable performance to an unfiltered approach. This method significantly reduced training time and computational requirements, allowing us to complete model training across multiple grid sizes efficiently. Our results indicate that reducing feature dimensionality not only accelerates training but may also contribute to more stable learning. To better assess IPS performance, we introduced two new evaluation metrics—Average Grid from Target (AGT) and Average Distance from Target (ADT)—which provide a clearer understanding of prediction deviation. Ultimately, our study highlights key considerations in IPS design, particularly in grid size selection and feature filtering, and offers insights for improving indoor positioning accuracy in practical implementations.

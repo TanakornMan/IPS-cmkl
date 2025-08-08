@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.2) (preloaded format=xelatex 2025.3.9)  7 AUG 2025 22:01
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.2) (preloaded format=xelatex 2025.3.9)  8 AUG 2025 20:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -243,34 +243,34 @@ File: l3backend-xetex.def 2024-05-08 L3 backend support: XeTeX
 ) (samplepaper.aux)
 \openout1 = `samplepaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 50.
+(Font)              <7> on input line 51.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 50.
+(Font)              <5> on input line 51.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 50.
+(Font)              <9> on input line 51.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 50.
+(Font)              <6> on input line 51.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-0.
+1.
 
 (C:\Users\japan\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -279,7 +279,7 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [1
 
 ]
-Overfull \hbox (15.40186pt too wide) in paragraph at lines 69--71
+Overfull \hbox (15.40186pt too wide) in paragraph at lines 70--72
 []\T1/lmr/m/n/10 In our pre-vi-ous work, we im-ple-mented an IPS us-ing a large
  grid size (16.75×15m)
  []
@@ -311,7 +311,7 @@ File: ./figures/meth3.jpg Graphic file (type bmp)
 Missing character: There is no ’ in font ec-lmr10!
 Missing character: There is no ’ in font ec-lmr10!
 
-Underfull \vbox (badness 2735) has occurred while \output is active []
+Underfull \vbox (badness 1694) has occurred while \output is active []
 
 
 
@@ -324,6 +324,11 @@ Missing character: There is no ’ in font ec-lmr10!
 File: ./figures/image14.jpg Graphic file (type bmp)
 <./figures/image14.jpg>
 
+Overfull \hbox (20.51631pt too wide) in paragraph at lines 191--200
+ [][] 
+ []
+
+Excluding 'comment' comment. Excluding 'comment' comment.
 
 [9]
 Missing character: There is no — in font ec-lmr10!
@@ -331,33 +336,33 @@ Excluding 'comment' comment. Excluding 'comment' comment.
 File: ./figures/image3.png Graphic file (type bmp)
 <./figures/image3.png>
 
-Overfull \hbox (26.77129pt too wide) in paragraph at lines 259--260
+Overfull \hbox (26.77129pt too wide) in paragraph at lines 304--305
  [][] 
  []
 
 File: ./figures/image1.png Graphic file (type bmp)
 <./figures/image1.png>
 
-Overfull \hbox (24.80028pt too wide) in paragraph at lines 266--267
+Overfull \hbox (24.80028pt too wide) in paragraph at lines 311--312
  [][] 
  []
 
 
-Underfull \hbox (badness 1383) in paragraph at lines 267--267
+Underfull \hbox (badness 1383) in paragraph at lines 312--312
 []\T1/lmr/m/n/10 Fig.6: |Model Av-er-age grid away
  []
 
 Missing character: There is no ’ in font ec-lmr10!
+Missing character: There is no — in font ec-lmr10!
 
 
 [10]
-Missing character: There is no — in font ec-lmr10!
 File: ./figures/image2.png Graphic file (type bmp)
 <./figures/image2.png>
 File: ./figures/image5.png Graphic file (type bmp)
 <./figures/image5.png>
 
-Underfull \hbox (badness 1867) in paragraph at lines 304--304
+Underfull \hbox (badness 1867) in paragraph at lines 349--349
 []\T1/lmr/m/n/10 Fig.8: |RF Model ac-cu-racy with
  []
 
@@ -369,6 +374,9 @@ File: ./figures/image7.png Graphic file (type bmp)
 <./figures/image7.png>
 Missing character: There is no — in font ec-lmr10!
 Missing character: There is no ’ in font ec-lmr10!
+
+Underfull \vbox (badness 1983) has occurred while \output is active []
+
 
 
 [11]
@@ -428,14 +436,14 @@ Underfull \hbox (badness 1902) in paragraph at lines 72--75
  []
 
 
-
-[14]
 Underfull \hbox (badness 1603) in paragraph at lines 90--94
 \T1/lmr/m/n/9 er-ated syn-thetic data by en-sem-ble mod-els and gans. pp. 1--6 
 (11 2024).
  []
 
-)
+
+
+[14])
 
 [15] (samplepaper.aux)
  ***********
@@ -446,10 +454,10 @@ L3 programming layer <2025-01-18>
 Here is how much of TeX's memory you used:
  3531 strings out of 408640
  59121 string characters out of 5744799
- 454661 words of memory out of 5000000
+ 455661 words of memory out of 5000000
  26571 multiletter control sequences out of 15000+600000
  592584 words of font info for 55 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 67i,10n,77p,1868b,392s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,12n,77p,1868b,392s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on samplepaper.pdf (15 pages).
