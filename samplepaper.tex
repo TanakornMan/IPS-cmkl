@@ -321,22 +321,20 @@ By conducting experiments across multiple grid sizes, the tradeoff between grid 
 
 While a 15x15m grid size performs well on the graph, it inherently limits accuracy to that resolution. In cases where predictions are correct, the location remains constrained within a 15×15m area, which may not be suitable for applications requiring higher precision—such as those needing to pinpoint areas smaller than this grid size.
 
-Through this experiment, a 7x7m grid size was found to offer the best balance between accuracy and precision. The ADT demonstrates that utilizing a 7x7m grid size minimizes error while remaining small enough for precision-dependent applications. However, these findings may not generalize to all IPS implementations in different environments. The results suggest that increasing grid size does not necessarily improve accuracy or precision; in some cases, performance actually declines, as shown in the chart. This highlights the need for careful consideration when selecting a grid size based on specific IPS deployment requirements.
+Through this experiment, a 7x7m grid size was found to offer the best balance between accuracy and precision. The ADT demonstrates that utilizing a 7x7m grid size minimizes error while remaining small enough for precision-dependent applications. 
+
+However, these findings may not generalize to all IPS implementations in different environments. The results suggest that increasing grid size does not necessarily improve accuracy or precision; in some cases, performance actually declines, as shown in the chart. This highlights the need for careful consideration when selecting a grid size based on specific IPS deployment requirements.
 
 
 %\begin{equation}
 %	ADT = AGT \times \sqrt{(grid\_width)^2 + (grid\_height)^2}.
 %\end{equation}
 
-\vspace{-10pt}
-
 \begin{figure}[htbp]
 	\centerline{\includegraphics[scale=0.65]{image2.png}}
 	\caption{Average Distance Error Across Different Grid Resolutions}
 	\label{fig:Avg_dis_err}
 \end{figure}
-
-
 
 Training an IPS model involves significant computational challenges, particularly when dealing with high-dimensional feature spaces. The experiment implemented a simple Wi-Fi access point filtering approach, selecting only access points containing specific identifiers in their names. This drastically reduced the number of access points used as features, making the training process more efficient.
 
