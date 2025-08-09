@@ -166,92 +166,56 @@ White-listing of access points within the targeted area was also considered, but
 \section{Result}
 \begin{table}[htbp]
 	\centering
-	\begin{minipage}{0.38\textwidth}
+	\begin{minipage}{0.42\textwidth}
 		\centering
-		\caption{Total True Unique Grids by Floor (1x1 Grid Size)
-		\label{tab:true_unique_grid}}
-		\vspace{-10pt}
-		\begin{tabular}{|l|l|l|} 
+		\caption{Total True Unique Grids by Floor}
+		\label{tab:true_unique_grid}
+		\vspace{2pt}
+		\small
+		\begin{tabular}{|l|c|c|} 
 			\hline
-			& \multicolumn{2}{l|}{\textbf{Floor}}  \\ 
+			& \multicolumn{2}{c|}{\textbf{Floor}}  \\ 
 			\hline
-			\textbf{1x1 Grid Size} & 1st & 2nd                            \\ 
+			\textbf{1x1 Grid Size} & 1st & 2nd \\ 
 			\hline
-			\textbf{Grid Count}    & 309 & 174                            \\
+			\textbf{Grid Count} & 309 & 174 \\
 			\hline
 		\end{tabular}
 	\end{minipage}
-	\hspace{10pt}
-	%\hfill
-	\begin{minipage}{0.48\textwidth}
+	\hfill
+	\begin{minipage}{0.52\textwidth}
 		\centering
 		\caption{Total BSSID Before and After Filtering}
 		\label{tab:bssid_counts}
-		\centering
-		\begin{tabular}{|l|l|l|}
+		\vspace{2pt}
+		\small
+		\begin{tabular}{|l|l|c|}
 			\hline
 			\multicolumn{2}{|l|}{\textbf{Collected Data Points}} & \textbf{\# BSSID} \\
 			\hline
-			\multirow{2}{*}{\textbf{Filtering Features}} & Non-Filtered & 1799 \\
+			\multirow{2}{*}{\textbf{Filtering}} & Non-Filtered & 1799 \\
 			\cline{2-3}
 			& Filtered & 378 \\
 			\hline
 		\end{tabular}
 	\end{minipage}
 \end{table}
-
-\begin{comment}
-	\vspace{-10pt}
-	\begin{table}[htbp]
-		\caption{Total BSSID Before and After Filtering}
-		\label{tab:bssid_counts}
-		\centering
-		\begin{tabular}{|l|l|l|}
-			\hline
-			\multicolumn{2}{|l|}{\textbf{Collected Data Points}} & \textbf{\# BSSID} \\
-			\hline
-			\multirow{2}{*}{\textbf{Filtering Features}} & Non-Filtered & 1799 \\
-			\cline{2-3}
-			& Filtered & 378 \\
-			\hline
-		\end{tabular}
-	\end{table}
-\end{comment}
-
-\vspace{-10pt}
+\vspace{-15pt}
 \begin{table}[htbp]
-	\caption{Total Unique Grids Present and Used for Each Grid Size Experiment}
+	\caption{Total Unique Grids for Each Grid Size Experiment}
 	\label{tab:grid_size_variations}
+	\vspace{2pt}
 	\centering
-	\begin{tabular}{|l|l|l|l|l|l|l|l|l|} 
+	\small
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|} 
 		\hline
-		\multirow{2}{*}{\textbf{Grid Count }} & \multicolumn{8}{l|}{\textbf{Grid Size Variations}}   \\ 
-		\cline{2-9}
-		& 1x1 & 3x3 & 5x5 & 7x7 & 9x9 & 11x11 & 13x13 & 15x15  \\ 
+		\textbf{Grid Size} & 1x1 & 3x3 & 5x5 & 7x7 & 9x9 & 11x11 & 13x13 & 15x15 \\ 
 		\hline
-		\textbf{Total Grid}                   & 483 & 96  & 47  & 29  & 28  & 16    & 18    & 9      \\
+		\textbf{Total Grids} & 483 & 96 & 47 & 29 & 28 & 16 & 18 & 9 \\
 		\hline
 	\end{tabular}
 \end{table}
-
-\begin{comment}
-	\vspace{-5pt}
-	\begin{table}[htbp]
-		\caption{Total True Unique Grids by Floor (1x1 Grid Size)}
-		\label{tab:true_unique_grid}
-		\centering
-		\begin{tabular}{|l|l|l|} 
-			\hline
-			& \multicolumn{2}{l|}{\textbf{Floor}}  \\ 
-			\hline
-			\textbf{1x1 Grid Size} & 1st & 2nd                            \\ 
-			\hline
-			\textbf{Grid Count}    & 309 & 174                            \\
-			\hline
-		\end{tabular}
-	\end{table}
-\end{comment}
-
+\vspace{-10pt}
 
 The dataset used in this study consisted of 12,640 data points collected across 1x1m\textsuperscript{2} grids distributed among the floors of the experimental setup. Filtering the available BSSID to utilize only SSID with specific identifiers resulted in 378 unique BSSID spanning across the 2 floors. The rationale behind filtering WiFi signals is to determine whether only easily identifiable BSSID can be utilized in implementing IPS. 9019 data points were collected on the 6th floor and 3621 data points on the 7th floor.
 
