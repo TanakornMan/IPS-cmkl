@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.8.9)  9 AUG 2025 12:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.8.9)  9 AUG 2025 12:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -285,100 +285,23 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation `bgp1' on page 2 undefined on input line 64.
-
-
-LaTeX Warning: Citation `bg2' on page 2 undefined on input line 66.
-
-
-LaTeX Warning: Citation `bgp2' on page 2 undefined on input line 66.
-
-
-LaTeX Warning: Citation `bgp3' on page 2 undefined on input line 68.
-
-[2]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 Overfull \hbox (0.15692pt too wide) in paragraph at lines 75--76
 []\T1/cmr/m/n/10 Introduction of two new eval-u-a-tion met-rics: Av-er-age Grid
  from Tar-get (AGT)
  []
 
-
-LaTeX Warning: Citation `LRE1' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE2' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE6' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE1' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE6' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE5' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE1' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE2' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE6' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `add1' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE1' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE2' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE3' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE4' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE7' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `LRE2' on page 3 undefined on input line 85.
-
-
-LaTeX Warning: Citation `LRE4' on page 3 undefined on input line 85.
-
-<./figures/meth1.png, id=22, 1214.5375pt x 665.48625pt>
+<./figures/meth1.png, id=21, 1214.5375pt x 665.48625pt>
 File: ./figures/meth1.png Graphic file (type png)
 <use ./figures/meth1.png>
 Package pdftex.def Info: ./figures/meth1.png  used on input line 90.
 (pdftex.def)             Requested size: 347.12354pt x 190.19357pt.
-
-LaTeX Warning: Reference `fig:graph_step' on page 3 undefined on input line 97.
-
-
-[3]
-
-LaTeX Warning: Reference `fig:taping' on page 4 undefined on input line 102.
-
-[4 <./figures/meth1.png>]
+[3] [4 <./figures/meth1.png>]
 <./figures/meth2.jpg, id=31, 1181.41376pt x 1582.91376pt>
 File: ./figures/meth2.jpg Graphic file (type jpg)
 <use ./figures/meth2.jpg>
 Package pdftex.def Info: ./figures/meth2.jpg  used on input line 113.
 (pdftex.def)             Requested size: 347.12354pt x 465.07156pt.
-
-
-LaTeX Warning: Reference `fig:heatmap008' on page 5 undefined on input line 123
-.
-
 
 Underfull \vbox (badness 1102) has occurred while \output is active []
 
@@ -390,29 +313,17 @@ File: ./figures/meth3.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./figures/meth3.jpg  used on input line 127.
 (pdftex.def)             Requested size: 250.97685pt x 185.33444pt.
  [7 <./figures/meth3.jpg>]
-
-LaTeX Warning: Citation `LRE1' on page 8 undefined on input line 148.
-
 <./figures/image14.jpg, id=46, 300.3722pt x 266.94731pt>
 File: ./figures/image14.jpg Graphic file (type jpg)
 <use ./figures/image14.jpg>
 Package pdftex.def Info: ./figures/image14.jpg  used on input line 156.
 (pdftex.def)             Requested size: 150.18571pt x 133.47331pt.
 
-LaTeX Warning: Reference `fig:heatmap008' on page 8 undefined on input line 161
-.
-
-
 Overfull \hbox (20.4739pt too wide) in paragraph at lines 191--200
  [][] 
  []
 
 [8] Excluding 'comment' comment. Excluding 'comment' comment.
-
-LaTeX Warning: Reference `fig:AGT_dgrid_size' on page 9 undefined on input line
- 265.
-
-
 Overfull \hbox (40.61877pt too wide) in paragraph at lines 265--266
 []\T1/cmr/m/n/10 This sug-gests that these met-rics pri-or-i-tize dif-fer-ent a
 s-pects of per-for-mance^^Voptimizing
@@ -445,10 +356,6 @@ Underfull \hbox (badness 1389) in paragraph at lines 312--312
 []\T1/cmr/m/n/10 Fig.6: |Model Av-er-age grid away
  []
 
-
-LaTeX Warning: Reference `fig:AGT_dgrid_size' on page 10 undefined on input lin
-e 320.
-
 <./figures/image2.png, id=57, 362.007pt x 217.467pt>
 File: ./figures/image2.png Graphic file (type png)
 <use ./figures/image2.png>
@@ -480,44 +387,10 @@ File: ./figures/image7.png Graphic file (type png)
 Package pdftex.def Info: ./figures/image7.png  used on input line 370.
 (pdftex.def)             Requested size: 156.20453pt x 100.0804pt.
 [10 <./figures/image3.png> <./figures/image1.png>]
-
-LaTeX Warning: Reference `fig:rf_acc_filter' on page 11 undefined on input line
- 376.
-
-
-LaTeX Warning: Reference `fig:rf_acc_nofilter' on page 11 undefined on input li
-ne 376.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11 <./figures/image2.png> <./figures/image5.png> <./figures/image6.png> <./fi
-gures/image4.png> <./figures/image7.png>]
-
-LaTeX Warning: Reference `fig:rf_agt_filter' on page 12 undefined on input line
- 378.
-
-
-LaTeX Warning: Reference `fig:rf_agt_nofilter' on page 12 undefined on input li
-ne 378.
-
-
-LaTeX Warning: Citation `LRE1' on page 12 undefined on input line 388.
-
-[12]
-
-LaTeX Warning: Citation `bgp4' undefined on input line 395.
-
-
-LaTeX Warning: Citation `add2' undefined on input line 395.
-
-
-LaTeX Warning: Citation `add3' undefined on input line 395.
-
-
-LaTeX Warning: Citation `add4' undefined on input line 395.
-
-(./samplepaper.bbl
+gures/image4.png> <./figures/image7.png>] [12] (./samplepaper.bbl
 Underfull \hbox (badness 4229) in paragraph at lines 18--21
 []\T1/cmr/m/n/9 Csik, D., Odry, A., Sarce-vic, P.: Com-par-i-son of rssi-based 
 fin-ger-print-
@@ -530,49 +403,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--21
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 43--47
+Underfull \hbox (badness 2042) in paragraph at lines 44--48
 []\T1/cmr/m/n/9 Link, J.A.B., Smith, P., Viol, N., Wehrle, K.: Foot-path: Ac-cu
 -rate map-
  []
 
 
-Underfull \hbox (badness 3088) in paragraph at lines 43--47
+Underfull \hbox (badness 3088) in paragraph at lines 44--48
 \T1/cmr/m/n/9 based in-door nav-i-ga-tion us-ing smart-phones. In: 2011 In-ter-
 na-tional Con-
  []
 
 
-Underfull \hbox (badness 4621) in paragraph at lines 43--47
+Underfull \hbox (badness 4621) in paragraph at lines 44--48
 \T1/cmr/m/n/9 fer-ence on In-door Po-si-tion-ing and In-door Nav-i-ga-tion. pp.
  1--8 (2011).
  []
 
 [13]
-Underfull \hbox (badness 2096) in paragraph at lines 62--65
+Underfull \hbox (badness 2096) in paragraph at lines 63--66
 []\T1/cmr/m/n/9 Nessa, A., Ad-hikari, B., Hus-sain, F., Fer-nando, X.N.: A sur-
 vey of ma-
  []
 
 
-Underfull \hbox (badness 1917) in paragraph at lines 72--75
+Underfull \hbox (badness 1917) in paragraph at lines 73--76
 \T1/cmr/m/n/9 In-ter-na-tional Carpathian Con-trol Con-fer-ence (ICCC). pp. 332
 --337 (2018).
  []
 
 
-Underfull \hbox (badness 1609) in paragraph at lines 90--94
+Underfull \hbox (badness 1609) in paragraph at lines 91--95
 \T1/cmr/m/n/9 er-ated syn-thetic data by en-sem-ble mod-els and gans. pp. 1--6 
 (11 2024).
  []
 
-) [14] (./samplepaper.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) [14] (./samplepaper.aux) ) 
 Here is how much of TeX's memory you used:
  3683 strings out of 480247
  62322 string characters out of 5896152
@@ -581,28 +447,29 @@ Here is how much of TeX's memory you used:
  479684 words of font info for 47 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  67i,12n,77p,1867b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/rinrin32/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.
-600pk> </home/rinrin32/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0
-700.600pk> </home/rinrin32/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/e
-cti1000.600pk> </home/rinrin32/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecbx1000.600pk> </home/rinrin32/.texlive2021/texmf-var/fonts/pk/ljfour/jknap
-pen/ec/ecbx1200.600pk> </home/rinrin32/.texlive2021/texmf-var/fonts/pk/ljfour/j
-knappen/ec/tcrm0900.600pk> </home/rinrin32/.texlive2021/texmf-var/fonts/pk/ljfo
-ur/jknappen/ec/ecbx0900.600pk> </home/rinrin32/.texlive2021/texmf-var/fonts/pk/
-ljfour/jknappen/ec/ectt0900.600pk> </home/rinrin32/.texlive2021/texmf-var/fonts
-/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/rinrin32/.texlive2021/texmf-var/f
-onts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/rinrin32/.texlive2021/texmf-v
-ar/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on samplepaper.pdf (14 pages, 2927513 bytes).
+ </home/rinrin32/.texlive2021/texmf-var/fonts/pk/lj
+four/jknappen/ec/tcrm1000.600pk> </home/rinrin32/.texlive2021/texmf-var/fonts/p
+k/ljfour/jknappen/ec/ecrm0700.600pk> </home/rinrin32/.texlive2021/texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/rinrin32/.texlive2021/texmf-var
+/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/rinrin32/.texlive2021/texmf
+-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/rinrin32/.texlive2021/t
+exmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0900.600pk> </home/rinrin32/.texlive20
+21/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/rinrin32/.texli
+ve2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> </home/rinrin32/.t
+exlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/rinrin3
+2/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/rin
+rin32/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy7.pfb>
+Output written on samplepaper.pdf (14 pages, 2927653 bytes).
 PDF statistics:
- 489 PDF objects out of 1000 (max. 8388607)
+ 491 PDF objects out of 1000 (max. 8388607)
  102 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
