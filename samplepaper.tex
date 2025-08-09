@@ -99,21 +99,9 @@ This paper adopts a systematic and empirical research methodology with the aim o
 The figure illustrates the research methodology structured into four parts: (1) Identification of environmental factors, (2) Extraction of related data, (3) Training of fingerprint matching models, and~(4) Analysis and review of results. The research began by investigating environmental factors that potentially interfere with IPS performance through literature review and area analysis. Following data collection and analysis, fingerprint databases were generated. The investigation led to creating two datasets: one with different grid sizes and another with varying reference point numbers. These datasets trained various ML models including KNN, SVM, RF, MLP, XGBoost, and XGBoost-based RF (XBGRF), selected for their effectiveness in traditional classification tasks and accessibility. Grid size served as a key variable to determine and measure its impact on results and identify optimal configurations. Finally, the location prediction accuracy was analyzed and evaluated against ground truth data.
 
 \subsection{Identification of Environmental Factors}
-To begin collecting data for constructing the fingerprint database, the environment must first be mapped and prepared for data collection. An environmental map was created by taping the floor into grids matching the digital floor plan, as shown in Fig. \ref{fig:taping}. 
+To begin collecting data for constructing the fingerprint database, the environment must first be mapped and prepared for data collection. An environmental map was created by taping the floor into grids matching the digital floor plan (see Appendix A for implementation details). 
 
-The tape serves as a reference point for the data collection device (a phone) when measuring RSSI values from nearby APs. The size and number of grids directly affects the collected datapoint quantity. Larger grid sizes reduce localization errors but decrease data point density. Different layouts and tiling across areas presented challenges, as certain floors had distinct tiling with varying elevations and angles. This was addressed by constructing grids based on previous reference points. 
-
-
-An issue that presented itself was one concerning the different layout and tiling across different areas. Certain floors had distinct tiling with different elevation and angles. This was mitigated by constructing grids on previous reference points. Although minor measurement inaccuracies may exist, they are negligible for the purpose of this study.
-
-While taping and collecting data points, another factor that could interfere with the IPS collection presented itself. The specific area inside the grid also affected how many RSSI values were present. For instance, collecting data in the top left corner of the grid could produce different RSSI values compared to the center of the grid. This issue could be addressed by either (1) removing the edge grids and (2) collecting fewer data points in the edge grid. However, both methods result in fewer data points being collected and have minimal impact on IPS performance. This is based on the assumption that, from a user experience perspective, being located at the edge of a grid represents a transitional state between adjacent grids. Meaning that, if misclassification occurs, it typically involves the neighboring grid and the correct grid itself. Therefore, for this study, the edge grid factor is negligible and omitted from further analysis.
-
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width=\textwidth]{meth2.jpg}
-	\caption{An example of taping that was done to create grids for data collection of RSSI values as fingerprints}
-	\label{fig:taping}
-\end{figure}
+The tape serves as a reference point for the data collection device (a phone) when measuring RSSI values from nearby APs. The size and number of grids directly affects the collected datapoint quantity. Larger grid sizes reduce localization errors but decrease data point density.
 
 A similar issue arose concerning the alignment of the data structure used to assign unique labels to each grid across different floors. This challenge was particularly pronounced when experimenting with varying grid sizes, as the total area and layout of each floor differed significantly. Given the nature of this study, it was determined that the most practical approach was to treat each grid as a uniquely identifiable unit based on its grid ID. This decision was supported by the assumption that, in a classification model, sufficiently distinct features—such as differing numbers or distributions of BSSID signals observed in the same relative location on different floors—would enable the model to distinguish between grids effectively. Thus, treating each grid as uniquely distinct was not considered a limitation in this context.
 
@@ -359,5 +347,25 @@ and Average Distance from Target (ADT) will be beneficial as it will help people
 \nocite{bgp4, add2, add3, add4}
 \bibliographystyle{splncs04}
 \bibliography{references}
+
+\appendix
+\section{Implementation Details: Grid Alignment Challenges}
+
+During the data collection phase, several practical challenges emerged that required careful consideration.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=\textwidth]{meth2.jpg}
+	\caption{An example of taping that was done to create grids for data collection of RSSI values as fingerprints}
+	\label{fig:taping}
+\end{figure}
+
+\subsection{Floor Tiling Variations}
+Different layouts and tiling across areas presented challenges, as certain floors had distinct tiling with varying elevations and angles (as shown in Fig. \ref{fig:taping}). This was addressed by constructing grids based on previous reference points. Although minor measurement inaccuracies may exist, they are negligible for the purpose of this study.
+
+\subsection{Edge Grid Effects}
+While taping and collecting data points, another factor that could interfere with the IPS collection presented itself. The specific area inside the grid also affected how many RSSI values were present. For instance, collecting data in the top left corner of the grid could produce different RSSI values compared to the center of the grid. 
+
+This issue could be addressed by either (1) removing the edge grids and (2) collecting fewer data points in the edge grid. However, both methods result in fewer data points being collected and have minimal impact on IPS performance. This is based on the assumption that, from a user experience perspective, being located at the edge of a grid represents a transitional state between adjacent grids. Meaning that, if misclassification occurs, it typically involves the neighboring grid and the correct grid itself. Therefore, for this study, the edge grid factor is negligible and omitted from further analysis.
 
 \end{document}
