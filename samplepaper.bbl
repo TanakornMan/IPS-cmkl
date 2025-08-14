@@ -11,11 +11,11 @@ Bibb√≤, L., Carotenuto, R., Della~Corte, F.: An overview of indoor localization
 
 \bibitem{LRE3}
 Christodoulou, D.: Developing an indoor localisation and wayfinding app for a
-  university library.
-  \url{https://project-archive.inf.ed.ac.uk/ug4/20223034/ug4_proj.pdf} (2022)
+  university library (2022), available at:
+  \url{https://project-archive.inf.ed.ac.uk/ug4/20223034/ug4_proj.pdf}
 
 \bibitem{bg2}
-Csik, D., Odry, √., Sarcevic, P.: Comparison of rssi-based fingerprinting
+Csik, D., Odry, A., Sarcevic, P.: Comparison of rssi-based fingerprinting
   methods for indoor localization. pp. 000273--000278 (09 2022).
   \doi{10.1109/SISY56759.2022.10036270}
 
@@ -36,11 +36,12 @@ Gidey, H.T., Guo, X., Zhong, K., Li, L., Zhang, Y.: Ohettlal: An online
   \url{https://www.mdpi.com/1424-8220/22/23/9044}
 
 \bibitem{LRE1}
-Intachuen, B., Charoenphon, M., Mankhetwit, T.: Classification-based ips.
-  \\url{https://github.com/RinRin-32/Classification-based-IPS} (2024)
+Intachuen, B., Charoenphon, M., Mankhetwit, T.: Classification-based ips
+  (2024), available at:
+  \url{https://github.com/RinRin-32/Classification-based-IPS}
 
 \bibitem{add3}
-Link, J.√.B., Smith, P., Viol, N., Wehrle, K.: Footpath: Accurate map-based
+Link, J.A.B., Smith, P., Viol, N., Wehrle, K.: Footpath: Accurate map-based
   indoor navigation using smartphones. In: 2011 International Conference on
   Indoor Positioning and Indoor Navigation. pp.~1--8 (2011).
   \doi{10.1109/IPIN.2011.6071934}
