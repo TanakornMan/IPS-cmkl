@@ -2,6 +2,13 @@
 %
 \usepackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{soul}
+\usepackage{float}
+\definecolor{lightgreen}{rgb}{0.9, 1.0, 0.9}
+\definecolor{lightred}{rgb}{1.0, 0.9, 0.9}
+\sethlcolor{lightgreen}
+\newcommand{\hlgreen}[1]{\sethlcolor{lightgreen}\hl{#1}}
+\newcommand{\hlred}[1]{\sethlcolor{lightred}\hl{#1}}
 
 \begin{document}
 %
@@ -155,22 +162,22 @@ Every ML model is trained with the same controlled dataset and workstation. Accu
 \begin{figure}[thb!]
 	\begin{minipage}{0.45\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{figures/image3.png}
-		\caption{Model Accuracy on Different grid sizes and models}
+		\includegraphics[width=\linewidth]{figures/overview_filtered_accuracy.png}
+		\caption{Model Accuracy on Different grid sizes and models (Filtered)}
 		\label{fig:acc_dgird_size}
 	\end{minipage}
 	\hfill
 	\begin{minipage}{0.45\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{figures/image1.png}
-		\caption{Model AGT on Different grid sizes and models}
+		\includegraphics[width=\linewidth]{figures/overview_filtered_agt.png}
+		\caption{Model AGT on Different grid sizes and models (Filtered)}
 		\label{fig:AGT_dgrid_size}
 	\end{minipage}
 \end{figure}
 \begin{figure}[thb!]
         \centering
-        \includegraphics[width=.45\linewidth]{figures/image2.png}
-        \caption{Model ADT on Different grid sizes and models}
+        \includegraphics[width=.45\linewidth]{figures/overview_filtered_adt.png}
+        \caption{Model ADT on Different grid sizes and models (Filtered)}
         \label{fig:ADT_dgrid_size}
 \end{figure}
 
@@ -178,47 +185,35 @@ Figure~\ref{fig:acc_dgird_size} presents the position estimation accuracy of eac
 
 For AGT and ADT in Figures~\ref{fig:AGT_dgrid_size} and~\ref{fig:ADT_dgrid_size}, the results are similar to those for accuracy. Figure~\ref{fig:AGT_dgrid_size} shows that larger grids have lower AGT, meaning it is easier to classify the correct grid during position estimation. The AGT value begins to stabilize once the grid size reaches $7\times7$m, suggesting that this is the smallest grid size capable of maintaining minimal errors. On the other hand, Figure~\ref{fig:ADT_dgrid_size} indicates that a $7\times7$m grid size minimizes error while remaining small enough for precision-dependent applications in this specific setting. The ADT results confirm that, even when measured in physical units, the $7\times7$m grid size remains the optimal point.
 
-\subsection{Filtering Impact on Accuracy and AGT measurement}\label{ssec:filtering-impact}
+\subsection{Filtering Impact on Model Performance}\label{ssec:filtering-impact}
 
-As mentioned in the last paragraph of Section~\ref{ssec:extraction}, BSSID filtering is proposed to exclude low-relevance data from the dataset. This approach can reduce computational resource requirements, particularly in scenarios with a large feature space (i.e., a high number of BSSIDs within the area network). To evaluate whether this filtering process can improve IPS performance, we conducted an experiment comparing the best-performing model—the Random Forest algorithm—trained on datasets generated with and without filtering.
+As described in Section~\ref{ssec:extraction}, BSSID filtering is proposed to exclude low-relevance data from the dataset. This approach can reduce computational resource requirements, particularly in scenarios with a large feature space (i.e., a high number of BSSIDs within the area network). To evaluate whether this filtering process can improve IPS performance, we conducted experiments comparing all models trained on datasets generated with and without filtering across all grid sizes.
 
 \begin{figure}[tbh!]
 	\centering
-	% First row
-        \begin{minipage}{0.48\linewidth}
+	\begin{minipage}{0.45\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{figures/image6.png}
-		\caption{Accuracy of random forest \textcolor{red}{without} BSSID filtering applied ($1\times1$)}
-		\label{fig:rf_acc_nofilter}
+		\includegraphics[width=\linewidth]{figures/overview_unfiltered_accuracy.png}
+		\caption{Model Accuracy (Unfiltered)}
+		\label{fig:acc_unfiltered}
 	\end{minipage}
 	\hfill
-        \begin{minipage}{0.48\linewidth}
+	\begin{minipage}{0.45\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{figures/image5.png}
-		\caption{Accuracy of random forest when we are \textcolor{blue}{applying} BSSID filtering ($1\times1$)}
-		\label{fig:rf_acc_filter}
+		\includegraphics[width=\linewidth]{figures/overview_unfiltered_agt.png}
+		\caption{Model AGT (Unfiltered)}
+		\label{fig:agt_unfiltered}
 	\end{minipage}
-	
-	\vspace{0.5cm} % vertical space between rows
-	
-	% Second row
-	\begin{minipage}{0.48\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figures/image7.png}
-		\caption{AGT of random forest \textcolor{red}{without} BSSID filtering applied ($1\times1$)}
-		\label{fig:rf_agt_nofilter}
-	\end{minipage}
-	\hfill
-        \begin{minipage}{0.48\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figures/image4.png}
-		\caption{AGT of random forest when we are \textcolor{blue}{applying} BSSID filtering ($1\times1$)}
-		\label{fig:rf_agt_filter}
-	\end{minipage}
-	
 \end{figure}
 
-Figures~\ref{fig:rf_acc_nofilter} and~\ref{fig:rf_acc_filter} depict the accuracy differences without and with the filtering process. The results show that applying the filtering improves the overall accuracy of the Random Forest model's position estimation from approximately 0.14 to 0.16 (about a 2\% improvement). Furthermore, as shown in Figures~\ref{fig:rf_agt_nofilter} and~\ref{fig:rf_agt_filter}, the filtering process does not negatively affect the AGT performance of the IPS model. In fact, AGT decreases from 15.28 to 15.18 meters, indicating a reduction in positioning error compared to the non-filtered model. It should be noted that the relatively low accuracy and AGT scores compared to Section~\ref{ssec:acc-agt-adt-results} are due to the evaluation being conducted with only the first 100 n\_estimators of the random forest model's hyperparameters. This n\_estimators configuration is expected to increase towards the optimal values reported in Section~\ref{ssec:acc-agt-adt-results} once full tuning is performed.
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=.45\linewidth]{figures/overview_unfiltered_adt.png}
+	\caption{Model ADT (Unfiltered)}
+	\label{fig:adt_unfiltered}
+\end{figure}
+
+Comparing Figures~\ref{fig:acc_dgird_size} and~\ref{fig:acc_unfiltered} reveals the impact of BSSID filtering on model accuracy across all models and grid sizes. The filtered dataset (Figure~\ref{fig:acc_dgird_size}) shows consistently higher accuracy across most models and grid configurations compared to the unfiltered dataset (Figure~\ref{fig:acc_unfiltered}). Similarly, Figures~\ref{fig:AGT_dgrid_size} and~\ref{fig:agt_unfiltered} demonstrate that filtering reduces AGT values, indicating improved positioning precision. The ADT comparison (Figures~\ref{fig:ADT_dgrid_size} and~\ref{fig:adt_unfiltered}) further confirms that filtering enhances overall model performance while significantly reducing computational requirements by decreasing the feature space from 1799 to 378 BSSIDs.
 
 \section{Discussion}\label{sec:discussion}
 
@@ -275,5 +270,477 @@ This issue could be addressed by either (1) removing the edge grids or (2) colle
 During the experimentation phase, specific hardware limitations significantly impacted the feasibility of training models with different feature sets. When attempting to train on the full, unfiltered BSSID set (1799 features), computational demands quickly became impractical—the RTX 3080 Ti GPU struggled even with the smallest grid size configurations. Although exact runtimes were not recorded, the difference in resource demands between filtered and unfiltered datasets was substantial.
 
 By applying the simple filtering approach that reduced features from 1799 to 378 BSSIDs, model training became feasible across the entire range of grid sizes (1×1 to 15×15). This hardware constraint, while limiting, provided valuable insights into the practical utility of the full feature set and suggests that systematic feature selection or dimensionality reduction studies could be worthwhile in future work. The filtering approach not only made training computationally feasible but also demonstrated that selective feature reduction can maintain or even improve model performance while significantly reducing computational requirements.
+
+\section{Detailed Model Performance Analysis}
+
+This section provides comprehensive performance comparisons for all machine learning models evaluated in this study across key grid sizes (1×1m, 7×7m, and 15×15m). The analysis includes side-by-side comparisons of accuracy and custom metric (AGT) measurements for both filtered and unfiltered BSSID datasets. These detailed results address the comparative performance of kNN, MLP, SVM, XGBoost, and XGBoost Random Forest models across different feature sets.
+
+\subsection*{kNN}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/knn_acc_1.png}
+		\caption*{Accuracy (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_acc_1.png}
+		\caption*{Accuracy (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/knn_acc_7.png}
+		\caption*{Accuracy (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_acc_7.png}
+		\caption*{Accuracy (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/knn_acc_15.png}
+		\caption*{Accuracy (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_acc_15.png}
+		\caption*{Accuracy (Unfiltered): 15×15m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/knn_custom_1.png}
+		\caption*{AGT (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_custom_1.png}
+		\caption*{AGT (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/knn_custom_7.png}
+		\caption*{AGT (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_custom_7.png}
+		\caption*{AGT (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/knn_custom_15.png}
+		\caption*{AGT (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_custom_15.png}
+		\caption*{AGT (Unfiltered): 15×15m}
+	\end{minipage}
+\end{figure}
+
+\clearpage
+
+\subsection*{MLP}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_acc_1.png}
+		\caption*{Accuracy (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_acc_1.png}
+		\caption*{Accuracy (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_acc_7.png}
+		\caption*{Accuracy (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_acc_7.png}
+		\caption*{Accuracy (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_acc_15.png}
+		\caption*{Accuracy (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_acc_15.png}
+		\caption*{Accuracy (Unfiltered): 15×15m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_custom_1.png}
+		\caption*{AGT (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_custom_1.png}
+		\caption*{AGT (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_custom_7.png}
+		\caption*{AGT (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_custom_7.png}
+		\caption*{AGT (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_custom_15.png}
+		\caption*{AGT (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_custom_15.png}
+		\caption*{AGT (Unfiltered): 15×15m}
+	\end{minipage}
+\end{figure}
+
+\clearpage
+
+\subsection*{SVM}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/svm_acc_1.png}
+		\caption*{Accuracy (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_acc_1.png}
+		\caption*{Accuracy (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/svm_acc_7.png}
+		\caption*{Accuracy (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_acc_7.png}
+		\caption*{Accuracy (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/svm_acc_15.png}
+		\caption*{Accuracy (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_acc_15.png}
+		\caption*{Accuracy (Unfiltered): 15×15m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/svm_custom_1.png}
+		\caption*{AGT (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_custom_1.png}
+		\caption*{AGT (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/svm_custom_7.png}
+		\caption*{AGT (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_custom_7.png}
+		\caption*{AGT (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/svm_custom_15.png}
+		\caption*{AGT (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_custom_15.png}
+		\caption*{AGT (Unfiltered): 15×15m}
+	\end{minipage}
+\end{figure}
+
+\clearpage
+
+\subsection*{XGBoost}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_acc_1.png}
+		\caption*{Accuracy (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_acc_1.png}
+		\caption*{Accuracy (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_acc_7.png}
+		\caption*{Accuracy (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_acc_7.png}
+		\caption*{Accuracy (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_acc_15.png}
+		\caption*{Accuracy (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_acc_15.png}
+		\caption*{Accuracy (Unfiltered): 15×15m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_custom_1.png}
+		\caption*{AGT (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_custom_1.png}
+		\caption*{AGT (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_custom_7.png}
+		\caption*{AGT (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_custom_7.png}
+		\caption*{AGT (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_custom_15.png}
+		\caption*{AGT (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_custom_15.png}
+		\caption*{AGT (Unfiltered): 15×15m}
+	\end{minipage}
+\end{figure}
+
+\clearpage
+
+\subsection*{XGBoost Random Forest}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_acc_1.png}
+		\caption*{Accuracy (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_acc_1.png}
+		\caption*{Accuracy (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_acc_7.png}
+		\caption*{Accuracy (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_acc_7.png}
+		\caption*{Accuracy (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_acc_15.png}
+		\caption*{Accuracy (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_acc_15.png}
+		\caption*{Accuracy (Unfiltered): 15×15m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_custom_1.png}
+		\caption*{AGT (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_custom_1.png}
+		\caption*{AGT (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_custom_7.png}
+		\caption*{AGT (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_custom_7.png}
+		\caption*{AGT (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_custom_15.png}
+		\caption*{AGT (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_custom_15.png}
+		\caption*{AGT (Unfiltered): 15×15m}
+	\end{minipage}
+\end{figure}
 
 \end{document}
