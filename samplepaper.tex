@@ -278,52 +278,98 @@ By applying the simple filtering approach that reduced features from 1799 to 378
 
 \section{Detailed Model Performance Analysis}
 
-This section provides comprehensive performance metrics for all machine learning models evaluated in this study across key grid sizes (1×1m, 7×7m, and 15×15m). The analysis includes accuracy and custom metric (AGT) measurements for filtered BSSID datasets. These detailed results address the comparative performance of kNN, MLP, SVM, XGBoost, and XGBoost Random Forest models.
+This section provides comprehensive performance comparisons for all machine learning models evaluated in this study across key grid sizes (1×1m, 7×7m, and 15×15m). The analysis includes side-by-side comparisons of accuracy and custom metric (AGT) measurements for both filtered and unfiltered BSSID datasets. These detailed results address the comparative performance of kNN, MLP, SVM, XGBoost, and XGBoost Random Forest models across different feature sets.
 
 \subsection*{kNN}
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/knn_acc_1.png}
-		\caption*{Accuracy: 1×1m}
+		\includegraphics[width=\textwidth]{figures/filtered/knn_acc_1.png}
+		\caption*{Accuracy (Filtered): 1×1m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/knn_acc_7.png}
-		\caption*{Accuracy: 7×7m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_acc_1.png}
+		\caption*{Accuracy (Unfiltered): 1×1m}
 	\end{minipage}
-	\hfill
-	\begin{minipage}{0.32\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figures/knn_acc_15.png}
-		\caption*{Accuracy: 15×15m}
-	\end{minipage}
-	\caption{kNN Accuracy vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/knn_custom_1.png}
-		\caption*{AGT: 1×1m}
+		\includegraphics[width=\textwidth]{figures/filtered/knn_acc_7.png}
+		\caption*{Accuracy (Filtered): 7×7m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/knn_custom_7.png}
-		\caption*{AGT: 7×7m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_acc_7.png}
+		\caption*{Accuracy (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/knn_acc_15.png}
+		\caption*{Accuracy (Filtered): 15×15m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/knn_custom_15.png}
-		\caption*{AGT: 15×15m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_acc_15.png}
+		\caption*{Accuracy (Unfiltered): 15×15m}
 	\end{minipage}
-	\caption{kNN Custom Metric (AGT) vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/knn_custom_1.png}
+		\caption*{AGT (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_custom_1.png}
+		\caption*{AGT (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/knn_custom_7.png}
+		\caption*{AGT (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_custom_7.png}
+		\caption*{AGT (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/knn_custom_15.png}
+		\caption*{AGT (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/knn_custom_15.png}
+		\caption*{AGT (Unfiltered): 15×15m}
+	\end{minipage}
 \end{figure}
 
 \clearpage
@@ -332,46 +378,92 @@ This section provides comprehensive performance metrics for all machine learning
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/mlp_acc_1.png}
-		\caption*{Accuracy: 1×1m}
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_acc_1.png}
+		\caption*{Accuracy (Filtered): 1×1m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/mlp_acc_7.png}
-		\caption*{Accuracy: 7×7m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_acc_1.png}
+		\caption*{Accuracy (Unfiltered): 1×1m}
 	\end{minipage}
-	\hfill
-	\begin{minipage}{0.32\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figures/mlp_acc_15.png}
-		\caption*{Accuracy: 15×15m}
-	\end{minipage}
-	\caption{MLP Accuracy vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/mlp_custom_1.png}
-		\caption*{AGT: 1×1m}
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_acc_7.png}
+		\caption*{Accuracy (Filtered): 7×7m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/mlp_custom_7.png}
-		\caption*{AGT: 7×7m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_acc_7.png}
+		\caption*{Accuracy (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_acc_15.png}
+		\caption*{Accuracy (Filtered): 15×15m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/mlp_custom_15.png}
-		\caption*{AGT: 15×15m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_acc_15.png}
+		\caption*{Accuracy (Unfiltered): 15×15m}
 	\end{minipage}
-	\caption{MLP Custom Metric (AGT) vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_custom_1.png}
+		\caption*{AGT (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_custom_1.png}
+		\caption*{AGT (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_custom_7.png}
+		\caption*{AGT (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_custom_7.png}
+		\caption*{AGT (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/mlp_custom_15.png}
+		\caption*{AGT (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/mlp_custom_15.png}
+		\caption*{AGT (Unfiltered): 15×15m}
+	\end{minipage}
 \end{figure}
 
 \clearpage
@@ -380,46 +472,92 @@ This section provides comprehensive performance metrics for all machine learning
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/svm_acc_1.png}
-		\caption*{Accuracy: 1×1m}
+		\includegraphics[width=\textwidth]{figures/filtered/svm_acc_1.png}
+		\caption*{Accuracy (Filtered): 1×1m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/svm_acc_7.png}
-		\caption*{Accuracy: 7×7m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_acc_1.png}
+		\caption*{Accuracy (Unfiltered): 1×1m}
 	\end{minipage}
-	\hfill
-	\begin{minipage}{0.32\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figures/svm_acc_15.png}
-		\caption*{Accuracy: 15×15m}
-	\end{minipage}
-	\caption{SVM Accuracy vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/svm_custom_1.png}
-		\caption*{AGT: 1×1m}
+		\includegraphics[width=\textwidth]{figures/filtered/svm_acc_7.png}
+		\caption*{Accuracy (Filtered): 7×7m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/svm_custom_7.png}
-		\caption*{AGT: 7×7m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_acc_7.png}
+		\caption*{Accuracy (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/svm_acc_15.png}
+		\caption*{Accuracy (Filtered): 15×15m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/svm_custom_15.png}
-		\caption*{AGT: 15×15m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_acc_15.png}
+		\caption*{Accuracy (Unfiltered): 15×15m}
 	\end{minipage}
-	\caption{SVM Custom Metric (AGT) vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/svm_custom_1.png}
+		\caption*{AGT (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_custom_1.png}
+		\caption*{AGT (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/svm_custom_7.png}
+		\caption*{AGT (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_custom_7.png}
+		\caption*{AGT (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/svm_custom_15.png}
+		\caption*{AGT (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/svm_custom_15.png}
+		\caption*{AGT (Unfiltered): 15×15m}
+	\end{minipage}
 \end{figure}
 
 \clearpage
@@ -428,46 +566,92 @@ This section provides comprehensive performance metrics for all machine learning
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/xgb_softmax_acc_1.png}
-		\caption*{Accuracy: 1×1m}
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_acc_1.png}
+		\caption*{Accuracy (Filtered): 1×1m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/xgb_softmax_acc_7.png}
-		\caption*{Accuracy: 7×7m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_acc_1.png}
+		\caption*{Accuracy (Unfiltered): 1×1m}
 	\end{minipage}
-	\hfill
-	\begin{minipage}{0.32\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figures/xgb_softmax_acc_15.png}
-		\caption*{Accuracy: 15×15m}
-	\end{minipage}
-	\caption{XGBoost Accuracy vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/xgb_softmax_custom_1.png}
-		\caption*{AGT: 1×1m}
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_acc_7.png}
+		\caption*{Accuracy (Filtered): 7×7m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/xgb_softmax_custom_7.png}
-		\caption*{AGT: 7×7m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_acc_7.png}
+		\caption*{Accuracy (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_acc_15.png}
+		\caption*{Accuracy (Filtered): 15×15m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/xgb_softmax_custom_15.png}
-		\caption*{AGT: 15×15m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_acc_15.png}
+		\caption*{Accuracy (Unfiltered): 15×15m}
 	\end{minipage}
-	\caption{XGBoost Custom Metric (AGT) vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_custom_1.png}
+		\caption*{AGT (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_custom_1.png}
+		\caption*{AGT (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_custom_7.png}
+		\caption*{AGT (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_custom_7.png}
+		\caption*{AGT (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgb_softmax_custom_15.png}
+		\caption*{AGT (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgb_softmax_custom_15.png}
+		\caption*{AGT (Unfiltered): 15×15m}
+	\end{minipage}
 \end{figure}
 
 \clearpage
@@ -476,46 +660,92 @@ This section provides comprehensive performance metrics for all machine learning
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/xgbrf_acc_1.png}
-		\caption*{Accuracy: 1×1m}
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_acc_1.png}
+		\caption*{Accuracy (Filtered): 1×1m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/xgbrf_acc_7.png}
-		\caption*{Accuracy: 7×7m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_acc_1.png}
+		\caption*{Accuracy (Unfiltered): 1×1m}
 	\end{minipage}
-	\hfill
-	\begin{minipage}{0.32\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figures/xgbrf_acc_15.png}
-		\caption*{Accuracy: 15×15m}
-	\end{minipage}
-	\caption{XGBoost Random Forest Accuracy vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/xgbrf_custom_1.png}
-		\caption*{AGT: 1×1m}
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_acc_7.png}
+		\caption*{Accuracy (Filtered): 7×7m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/xgbrf_custom_7.png}
-		\caption*{AGT: 7×7m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_acc_7.png}
+		\caption*{Accuracy (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_acc_15.png}
+		\caption*{Accuracy (Filtered): 15×15m}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{figures/xgbrf_custom_15.png}
-		\caption*{AGT: 15×15m}
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_acc_15.png}
+		\caption*{Accuracy (Unfiltered): 15×15m}
 	\end{minipage}
-	\caption{XGBoost Random Forest Custom Metric (AGT) vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_custom_1.png}
+		\caption*{AGT (Filtered): 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_custom_1.png}
+		\caption*{AGT (Unfiltered): 1×1m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_custom_7.png}
+		\caption*{AGT (Filtered): 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_custom_7.png}
+		\caption*{AGT (Unfiltered): 7×7m}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/filtered/xgbrf_custom_15.png}
+		\caption*{AGT (Filtered): 15×15m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/unfiltered/xgbrf_custom_15.png}
+		\caption*{AGT (Unfiltered): 15×15m}
+	\end{minipage}
 \end{figure}
 
 \end{document}
