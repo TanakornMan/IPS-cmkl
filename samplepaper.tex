@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{soul}
+\usepackage{float}
 \definecolor{lightgreen}{rgb}{0.9, 1.0, 0.9}
 \definecolor{lightred}{rgb}{1.0, 0.9, 0.9}
 \sethlcolor{lightgreen}
@@ -274,5 +275,247 @@ This issue could be addressed by either (1) removing the edge grids and (2) coll
 During the experimentation phase, specific hardware limitations significantly impacted the feasibility of training models with different feature sets. When attempting to train on the full, unfiltered BSSID set (1799 features), computational demands quickly became impractical—the RTX 3080 Ti GPU struggled even with the smallest grid size configurations. Although exact runtimes were not recorded, the difference in resource demands between filtered and unfiltered datasets was substantial.
 
 By applying the simple filtering approach that reduced features from 1799 to 378 BSSIDs, model training became feasible across the entire range of grid sizes (1×1 to 15×15). This hardware constraint, while limiting, provided valuable insights into the practical utility of the full feature set and suggests that systematic feature selection or dimensionality reduction studies could be worthwhile in future works. The filtering approach not only made training computationally feasible but also demonstrated that selective feature reduction can maintain or even improve model performance while significantly reducing computational requirements.
+
+\section{Detailed Model Performance Analysis}
+
+This section provides comprehensive performance metrics for all machine learning models evaluated in this study across key grid sizes (1×1m, 7×7m, and 15×15m). The analysis includes accuracy and custom metric (AGT) measurements for filtered BSSID datasets. These detailed results address the comparative performance of kNN, MLP, SVM, XGBoost, and XGBoost Random Forest models.
+
+\subsection*{kNN}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/knn_acc_1.png}
+		\caption*{Accuracy: 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/knn_acc_7.png}
+		\caption*{Accuracy: 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/knn_acc_15.png}
+		\caption*{Accuracy: 15×15m}
+	\end{minipage}
+	\caption{kNN Accuracy vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/knn_custom_1.png}
+		\caption*{AGT: 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/knn_custom_7.png}
+		\caption*{AGT: 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/knn_custom_15.png}
+		\caption*{AGT: 15×15m}
+	\end{minipage}
+	\caption{kNN Custom Metric (AGT) vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\clearpage
+
+\subsection*{MLP}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/mlp_acc_1.png}
+		\caption*{Accuracy: 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/mlp_acc_7.png}
+		\caption*{Accuracy: 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/mlp_acc_15.png}
+		\caption*{Accuracy: 15×15m}
+	\end{minipage}
+	\caption{MLP Accuracy vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/mlp_custom_1.png}
+		\caption*{AGT: 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/mlp_custom_7.png}
+		\caption*{AGT: 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/mlp_custom_15.png}
+		\caption*{AGT: 15×15m}
+	\end{minipage}
+	\caption{MLP Custom Metric (AGT) vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\clearpage
+
+\subsection*{SVM}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/svm_acc_1.png}
+		\caption*{Accuracy: 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/svm_acc_7.png}
+		\caption*{Accuracy: 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/svm_acc_15.png}
+		\caption*{Accuracy: 15×15m}
+	\end{minipage}
+	\caption{SVM Accuracy vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/svm_custom_1.png}
+		\caption*{AGT: 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/svm_custom_7.png}
+		\caption*{AGT: 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/svm_custom_15.png}
+		\caption*{AGT: 15×15m}
+	\end{minipage}
+	\caption{SVM Custom Metric (AGT) vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\clearpage
+
+\subsection*{XGBoost}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgb_softmax_acc_1.png}
+		\caption*{Accuracy: 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgb_softmax_acc_7.png}
+		\caption*{Accuracy: 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgb_softmax_acc_15.png}
+		\caption*{Accuracy: 15×15m}
+	\end{minipage}
+	\caption{XGBoost Accuracy vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgb_softmax_custom_1.png}
+		\caption*{AGT: 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgb_softmax_custom_7.png}
+		\caption*{AGT: 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgb_softmax_custom_15.png}
+		\caption*{AGT: 15×15m}
+	\end{minipage}
+	\caption{XGBoost Custom Metric (AGT) vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\clearpage
+
+\subsection*{XGBoost Random Forest}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgbrf_acc_1.png}
+		\caption*{Accuracy: 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgbrf_acc_7.png}
+		\caption*{Accuracy: 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgbrf_acc_15.png}
+		\caption*{Accuracy: 15×15m}
+	\end{minipage}
+	\caption{XGBoost Random Forest Accuracy vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgbrf_custom_1.png}
+		\caption*{AGT: 1×1m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgbrf_custom_7.png}
+		\caption*{AGT: 7×7m}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/xgbrf_custom_15.png}
+		\caption*{AGT: 15×15m}
+	\end{minipage}
+	\caption{XGBoost Random Forest Custom Metric (AGT) vs Parameter Settings - Grid sizes 1×1m, 7×7m, and 15×15m (filtered)}
+\end{figure}
 
 \end{document}
