@@ -1,0 +1,385 @@
+\documentclass[10pt]{beamer}
+
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+
+\title{A Simplified Multi-Floor Classification-Based Indoor Positioning System Study}
+\subtitle{Optimizing Grid Size and Feature Selection for ML-Based IPS}
+\date{\today}
+\author{Burin Intachuen\inst{1} \and Mhadhanagul Charoenphon\inst{1} \and Tanakorn Mankhetwit\inst{1} \and Charnon Pattiyanon\inst{2}}
+\institute{
+  \inst{1} Department of Computer Engineering, Mahidol University (International College), Thailand \\
+  \inst{2} Department of AI and Computer Engineering, CMKL University, Thailand
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Table of contents}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Indoor Positioning Systems (IPS)}
+  \begin{itemize}
+    \item GPS and GNSS fail indoors due to signal attenuation
+    \item Building materials (concrete, metal) block satellite signals
+    \item IPS provides alternative solution for indoor navigation
+    \item Applications: shopping malls, hospitals, university campuses
+  \end{itemize}
+
+  \begin{alertblock}{Challenge}
+    How to optimize IPS performance in multi-floor environments?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Current Approaches}
+  \textbf{Traditional Methods:}
+  \begin{itemize}
+    \item Trilateration using BLE or Wi-Fi RSSI
+    \item Fingerprinting-based positioning
+    \item Limited by environmental noise
+  \end{itemize}
+
+  \vspace{1em}
+
+  \textbf{Machine Learning Approaches:}
+  \begin{itemize}
+    \item kNN, Random Forest, SVM, Neural Networks
+    \item Treat positioning as classification problem
+    \item Better handling of noisy RSSI data
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Research Motivation}
+  \textbf{Previous work limitations:}
+  \begin{itemize}
+    \item Large grid sizes (16.75×15 m) used for simplicity
+    \item Limited understanding of grid size impact
+    \item No systematic study of feature filtering effects
+  \end{itemize}
+
+  \vspace{1em}
+
+  \textbf{Our contributions:}
+  \begin{enumerate}
+    \item New evaluation metrics: AGT and ADT
+    \item Grid size vs. precision trade-off analysis
+    \item Feature filtering impact on model performance
+    \item Practical insights for IPS implementation
+  \end{enumerate}
+\end{frame}
+
+\section{Research Methodology}
+
+\begin{frame}{Research Overview}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{../figures/meth1.png}
+    \caption{Four-part research methodology}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Environmental Factors}
+  \textbf{Key factors identified:}
+  \begin{enumerate}
+    \item \textbf{Grid Size}
+    \begin{itemize}
+      \item Larger grids $\rightarrow$ easier classification, lower precision
+      \item Smaller grids $\rightarrow$ higher precision, more data collection effort
+    \end{itemize}
+
+    \vspace{0.5em}
+
+    \item \textbf{Low-Relevance BSSIDs}
+    \begin{itemize}
+      \item Signals from distant access points
+      \item Introduce noise and increase computational cost
+      \item Need systematic filtering approach
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{RSSI Heatmap Analysis}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{../figures/meth3.jpg}
+    \caption{Heatmap showing RSSI values from different access points}
+  \end{figure}
+  \begin{itemize}
+    \item Darker colors = lower signal strength
+    \item Many low-relevance BSSIDs detected
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{New Evaluation Metrics}
+  \textbf{Average Grid from Target (AGT):}
+  \begin{equation*}
+    AGT = \sqrt{(x_{target} - x_{estimate})^2 + (y_{target} - y_{estimate})^2}
+  \end{equation*}
+
+  \vspace{1em}
+
+  \textbf{Average Distance from Target (ADT):}
+  \begin{equation*}
+    ADT = \sqrt{[w_{g} \times (x_{target} - x_{estimate})]^2 + [h_{g} \times (y_{target} - y_{estimate})]^2}
+  \end{equation*}
+
+  \begin{itemize}
+    \item AGT: Grid-based distance (adaptable to any grid size)
+    \item ADT: Physical distance in meters
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Grid Interpolation Approach}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[width=\linewidth]{../figures/image14.jpg}
+        \caption{Grid aggregation visualization}
+      \end{figure}
+
+    \column{0.5\textwidth}
+      \textbf{Benefits:}
+      \begin{itemize}
+        \item Avoid re-taping entire area
+        \item Generate multiple grid sizes from 1×1m base
+        \item Reduce human measurement errors
+      \end{itemize}
+
+      \vspace{1em}
+
+      \textbf{Method:}
+      \begin{itemize}
+        \item Average RSSI from 5 sampling points
+        \item Test 8 grid sizes: 1×1m to 15×15m
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Dataset Overview}
+  \begin{table}
+    \caption{Dataset metadata by grid size}
+    \small
+    \begin{tabular}{@{} ccccc @{}}
+      \toprule
+      \textbf{Floor} & \textbf{Grid Size} & \textbf{\# Grids} & \textbf{\# Data Points} \\
+      \midrule
+      1st & 1×1m & 309 & 8,086 \\
+      1st & 7×7m & 17 & 445 \\
+      1st & 15×15m & 5 & 130 \\
+      \midrule
+      2nd & 1×1m & 174 & 4,554 \\
+      2nd & 7×7m & 12 & 314 \\
+      2nd & 15×15m & 4 & 105 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \begin{itemize}
+    \item Total: 12,640 RSSI samples
+    \item Filtered: 378 BSSIDs (from 1,799)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Machine Learning Models}
+  \textbf{Models evaluated:}
+  \begin{itemize}
+    \item k-Nearest Neighbor (kNN)
+    \item Random Forest (RF)
+    \item Support Vector Machine (SVM)
+    \item Multi-Layer Perceptron (MLP)
+    \item XGBoost
+    \item XGBoost + Random Forest hybrid
+  \end{itemize}
+
+  \vspace{1em}
+
+  \textbf{Training approach:}
+  \begin{itemize}
+    \item Standard process with hyperparameter tuning
+    \item Consistent dataset across all models
+    \item Comparison of filtered vs. unfiltered BSSIDs
+  \end{itemize}
+\end{frame}
+
+\section{Experiments and Results}
+
+\begin{frame}{Accuracy by Grid Size}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{../figures/overview_filtered_accuracy.png}
+    \caption{Model accuracy across different grid sizes (Filtered)}
+  \end{figure}
+
+  \begin{itemize}
+    \item Larger grids $\rightarrow$ higher accuracy
+    \item 7×7m grid achieves ~80\% accuracy
+    \item RF and XGBoost perform best
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{AGT Results}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{../figures/overview_filtered_agt.png}
+    \caption{Average Grid from Target (Filtered)}
+  \end{figure}
+
+  \begin{itemize}
+    \item AGT stabilizes at 7×7m grid size
+    \item Smaller grids show higher positioning errors
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ADT Results}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{../figures/overview_filtered_adt.png}
+    \caption{Average Distance from Target in meters (Filtered)}
+  \end{figure}
+
+  \begin{itemize}
+    \item 7×7m grid minimizes physical distance error
+    \item Optimal balance for precision-dependent applications
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Feature Filtering Impact}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[width=\linewidth]{../figures/overview_filtered_accuracy.png}
+        \caption{Filtered (378 BSSIDs)}
+      \end{figure}
+
+    \column{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[width=\linewidth]{../figures/overview_unfiltered_accuracy.png}
+        \caption{Unfiltered (1,799 BSSIDs)}
+      \end{figure}
+  \end{columns}
+
+  \vspace{0.5em}
+
+  \textbf{Filtering benefits:}
+  \begin{itemize}
+    \item Comparable accuracy with 79\% fewer features
+    \item More stable performance
+    \item Reduced computational requirements
+  \end{itemize}
+\end{frame}
+
+\section{Discussion}
+
+\begin{frame}{Key Findings}
+  \begin{enumerate}
+    \item \textbf{Optimal Grid Size: 7×7m}
+    \begin{itemize}
+      \item Best balance between accuracy and spatial resolution
+      \item ~80\% accuracy with lowest AGT/ADT values
+    \end{itemize}
+
+    \vspace{0.5em}
+
+    \item \textbf{Feature Filtering Works}
+    \begin{itemize}
+      \item 79\% reduction in features (1,799 $\rightarrow$ 378)
+      \item Maintained performance, improved stability
+      \item Significantly reduced training time
+    \end{itemize}
+
+    \vspace{0.5em}
+
+    \item \textbf{Best Models: RF and XGBoost}
+    \begin{itemize}
+      \item Consistently outperformed other models
+      \item Well-suited for fingerprint-matching tasks
+      \item Better than complex deep learning in this setting
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Practical Implications}
+  \textbf{For IPS Implementation:}
+  \begin{itemize}
+    \item Don't assume smaller grids are always better
+    \item Moderate grid sizes can be optimal
+    \item Simple feature filtering is effective
+    \item Traditional ML can outperform deep learning
+  \end{itemize}
+
+  \vspace{1em}
+
+  \textbf{Limitations:}
+  \begin{itemize}
+    \item Site-specific results (university campus)
+    \item May need recalibration for different environments
+    \item Architecture and materials affect performance
+  \end{itemize}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Summary}
+  \textbf{What we achieved:}
+  \begin{itemize}
+    \item Identified optimal 7×7m grid size for multi-floor IPS
+    \item Introduced AGT and ADT metrics for standardized evaluation
+    \item Demonstrated effective BSSID filtering approach
+    \item Showed RF and XGBoost superiority
+  \end{itemize}
+
+  \vspace{1em}
+
+  \textbf{Future directions:}
+  \begin{itemize}
+    \item Advanced deep learning models (attention-based, GNN-MLP)
+    \item Real-time adaptive grid configurations
+    \item Synthetic data augmentation and sensor fusion
+    \item Transfer learning across buildings
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+  Questions?
+\end{frame}
+
+\appendix
+
+\begin{frame}{Implementation Challenges}
+  \textbf{Floor tiling variations:}
+  \begin{itemize}
+    \item Different elevations and angles
+    \item Addressed by reference-point-based grid construction
+  \end{itemize}
+
+  \vspace{1em}
+
+  \textbf{Edge grid effects:}
+  \begin{itemize}
+    \item Corner vs. center RSSI variations
+    \item Minimal impact on overall performance
+    \item Misclassifications typically involve adjacent grids
+  \end{itemize}
+
+  \vspace{1em}
+
+  \textbf{Hardware constraints:}
+  \begin{itemize}
+    \item RTX 3080 Ti struggled with unfiltered dataset
+    \item Filtering made training feasible across all grid sizes
+  \end{itemize}
+\end{frame}
+
+\end{document}
