@@ -28,59 +28,44 @@
   \tableofcontents[hideallsubsections]
 \end{frame}
 
-\section{Introduction}
+\section{Problem \& Contributions}
 
-\begin{frame}{Indoor Positioning Systems (IPS)}
+\begin{frame}{Indoor Positioning: Problem \& Approaches}
+  \textbf{The Challenge:}
   \begin{itemize}
-    \item GPS and GNSS fail indoors due to signal attenuation
-    \item Building materials (concrete, metal) block satellite signals
-    \item IPS provides alternative solution for indoor navigation
-    \item Applications: shopping malls, hospitals, university campuses
+    \item GPS fails indoors (signal attenuation from building materials)
+    \item Need alternative solutions for multi-floor environments
   \end{itemize}
 
-  \begin{alertblock}{Challenge}
-    How to optimize IPS performance in multi-floor environments?
+  \vspace{0.5em}
+
+  \textbf{Why Machine Learning?}
+  \begin{itemize}
+    \item Minimal building knowledge required (no blueprints, no signal modeling)
+    \item No signal processing or RSSI boosting infrastructure needed
+    \item Learn patterns directly from raw RSSI fingerprints
+  \end{itemize}
+
+  \begin{alertblock}{Research Question}
+    How to optimize grid size and feature selection for ML-based IPS?
   \end{alertblock}
 \end{frame}
 
-\begin{frame}{Current Approaches}
-  \textbf{Traditional Methods:}
-  \begin{itemize}
-    \item Trilateration using BLE or Wi-Fi RSSI
-    \item Fingerprinting-based positioning
-    \item Limited by environmental noise
-  \end{itemize}
+\begin{frame}{Research Contributions}
+  \textbf{Gap:} Limited understanding of grid size and feature selection impact
 
-  \vspace{1em}
-
-  \textbf{Machine Learning Approaches:}
-  \begin{itemize}
-    \item kNN, Random Forest, SVM, Neural Networks
-    \item Treat positioning as classification problem
-    \item Better handling of noisy RSSI data
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Research Motivation}
-  \textbf{Previous work limitations:}
-  \begin{itemize}
-    \item Large grid sizes (16.75×15 m) used for simplicity
-    \item Limited understanding of grid size impact
-    \item No systematic study of feature filtering effects
-  \end{itemize}
-
-  \vspace{1em}
+  \vspace{0.5em}
 
   \textbf{Our contributions:}
   \begin{enumerate}
     \item New evaluation metrics: AGT and ADT
-    \item Grid size vs. precision trade-off analysis
-    \item Feature filtering impact on model performance
+    \item Grid size vs. precision trade-off analysis (1×1m to 15×15m)
+    \item Feature filtering impact (1,799 $\rightarrow$ 378 BSSIDs)
     \item Practical insights for IPS implementation
   \end{enumerate}
 \end{frame}
 
-\section{Research Methodology}
+\section{Methodology}
 
 \begin{frame}{Research Overview}
   \begin{figure}
@@ -137,7 +122,7 @@
 
   \begin{itemize}
     \item AGT: Grid-based distance (adaptable to any grid size)
-    \item ADT: Physical distance in meters
+    \item ADT: Converts AGT to physical distance in meters using grid dimensions
   \end{itemize}
 \end{frame}
 
@@ -213,7 +198,7 @@
   \end{itemize}
 \end{frame}
 
-\section{Experiments and Results}
+\section{Results}
 
 \begin{frame}{Accuracy by Grid Size}
   \begin{figure}
@@ -280,7 +265,7 @@
   \end{itemize}
 \end{frame}
 
-\section{Discussion}
+\section{Key Findings \& Implications}
 
 \begin{frame}{Key Findings}
   \begin{enumerate}
@@ -316,7 +301,6 @@
     \item Don't assume smaller grids are always better
     \item Moderate grid sizes can be optimal
     \item Simple feature filtering is effective
-    \item Traditional ML can outperform deep learning
   \end{itemize}
 
   \vspace{1em}
@@ -324,6 +308,7 @@
   \textbf{Limitations:}
   \begin{itemize}
     \item Site-specific results (university campus)
+    \item Intensive data collection required (can be automated but still daunting)
     \item May need recalibration for different environments
     \item Architecture and materials affect performance
   \end{itemize}
@@ -334,10 +319,10 @@
 \begin{frame}{Summary}
   \textbf{What we achieved:}
   \begin{itemize}
-    \item Identified optimal 7×7m grid size for multi-floor IPS
+    \item Verified local optimal grid size can be identified (7×7m in this case)
     \item Introduced AGT and ADT metrics for standardized evaluation
     \item Demonstrated effective BSSID filtering approach
-    \item Showed RF and XGBoost superiority
+    \item Showed RF and XGBoost performed best among models tested
   \end{itemize}
 
   \vspace{1em}
@@ -350,12 +335,6 @@
     \item Transfer learning across buildings
   \end{itemize}
 \end{frame}
-
-\begin{frame}[standout]
-  Questions?
-\end{frame}
-
-\appendix
 
 \begin{frame}{Implementation Challenges}
   \textbf{Floor tiling variations:}
@@ -381,5 +360,11 @@
     \item Filtering made training feasible across all grid sizes
   \end{itemize}
 \end{frame}
+
+\begin{frame}[standout]
+  Questions?
+\end{frame}
+
+\appendix
 
 \end{document}
