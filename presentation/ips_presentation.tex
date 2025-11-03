@@ -30,38 +30,21 @@
 
 \section{Problem \& Contributions}
 
-\begin{frame}{Indoor Positioning: Problem \& Approaches}
-  \textbf{The Challenge:}
-  \begin{itemize}
-    \item GPS fails indoors (signal attenuation from building materials)
-    \item Need alternative solutions for multi-floor environments
-  \end{itemize}
+\begin{frame}{Problem, Approach \& Contributions}
+  \textbf{Challenge:} GPS fails indoors, need ML-based IPS using Wi-Fi fingerprinting
 
   \vspace{0.5em}
 
-  \textbf{Why Machine Learning?}
-  \begin{itemize}
-    \item Minimal building knowledge required (no blueprints, no signal modeling)
-    \item No signal processing or RSSI boosting infrastructure needed
-    \item Learn patterns directly from raw RSSI fingerprints
-  \end{itemize}
-
-  \begin{alertblock}{Research Question}
-    How to optimize grid size and feature selection for ML-based IPS?
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{Research Contributions}
-  \textbf{Gap:} Limited understanding of grid size and feature selection impact
+  \textbf{Research Gap:} Limited understanding of grid size and feature selection impact
 
   \vspace{0.5em}
 
-  \textbf{Our contributions:}
+  \textbf{Our Contributions:}
   \begin{enumerate}
     \item New evaluation metrics: AGT and ADT
     \item Grid size vs. precision trade-off analysis (1×1m to 15×15m)
     \item Feature filtering impact (1,799 $\rightarrow$ 378 BSSIDs)
-    \item Practical insights for IPS implementation
+    \item Verified local optimal grid size can be identified (7×7m)
   \end{enumerate}
 \end{frame}
 
@@ -93,18 +76,6 @@
       \item Need systematic filtering approach
     \end{itemize}
   \end{enumerate}
-\end{frame}
-
-\begin{frame}{RSSI Heatmap Analysis}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.7\linewidth]{../figures/meth3.jpg}
-    \caption{Heatmap showing RSSI values from different access points}
-  \end{figure}
-  \begin{itemize}
-    \item Darker colors = lower signal strength
-    \item Many low-relevance BSSIDs detected
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{New Evaluation Metrics}
@@ -177,6 +148,17 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{RSSI Heatmap Analysis}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{../figures/meth3.jpg}
+    \caption{Heatmap showing RSSI values from different access points in a sample grid}
+  \end{figure}
+  \begin{itemize}
+    \item Darker colors = lower signal strength
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Machine Learning Models}
   \textbf{Models evaluated:}
   \begin{itemize}
@@ -206,12 +188,6 @@
     \includegraphics[width=0.7\linewidth]{../figures/overview_filtered_accuracy.png}
     \caption{Model accuracy across different grid sizes (Filtered)}
   \end{figure}
-
-  \begin{itemize}
-    \item Larger grids $\rightarrow$ higher accuracy
-    \item 7×7m grid achieves ~80\% accuracy
-    \item RF and XGBoost perform best
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{AGT Results}
@@ -220,11 +196,6 @@
     \includegraphics[width=0.7\linewidth]{../figures/overview_filtered_agt.png}
     \caption{Average Grid from Target (Filtered)}
   \end{figure}
-
-  \begin{itemize}
-    \item AGT stabilizes at 7×7m grid size
-    \item Smaller grids show higher positioning errors
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{ADT Results}
@@ -233,11 +204,6 @@
     \includegraphics[width=0.7\linewidth]{../figures/overview_filtered_adt.png}
     \caption{Average Distance from Target in meters (Filtered)}
   \end{figure}
-
-  \begin{itemize}
-    \item 7×7m grid minimizes physical distance error
-    \item Optimal balance for precision-dependent applications
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{Feature Filtering Impact}
@@ -254,15 +220,6 @@
         \caption{Unfiltered (1,799 BSSIDs)}
       \end{figure}
   \end{columns}
-
-  \vspace{0.5em}
-
-  \textbf{Filtering benefits:}
-  \begin{itemize}
-    \item Comparable accuracy with 79\% fewer features
-    \item More stable performance
-    \item Reduced computational requirements
-  \end{itemize}
 \end{frame}
 
 \section{Key Findings \& Implications}
@@ -298,7 +255,7 @@
 \begin{frame}{Practical Implications}
   \textbf{For IPS Implementation:}
   \begin{itemize}
-    \item Don't assume smaller grids are always better
+    \item Don't assume bigger grids imply better accuracy - accuracy diminishes beyond optimal point
     \item Moderate grid sizes can be optimal
     \item Simple feature filtering is effective
   \end{itemize}
