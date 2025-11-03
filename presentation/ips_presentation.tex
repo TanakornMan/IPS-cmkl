@@ -10,6 +10,9 @@
 
 \usepackage{xspace}
 
+% Disable section title pages
+\AtBeginSection{}
+
 \title{A Simplified Multi-Floor Classification-Based Indoor Positioning System Study}
 \subtitle{Optimizing Grid Size and Feature Selection for ML-Based IPS}
 \date{\today}
@@ -271,20 +274,9 @@
   \end{itemize}
 \end{frame}
 
-\section{Conclusion}
+\section{Future Directions}
 
-\begin{frame}{Summary}
-  \textbf{What we achieved:}
-  \begin{itemize}
-    \item Verified local optimal grid size can be identified (7×7m in this case)
-    \item Introduced AGT and ADT metrics for standardized evaluation
-    \item Demonstrated effective BSSID filtering approach
-    \item Showed RF and XGBoost performed best among models tested
-  \end{itemize}
-
-  \vspace{1em}
-
-  \textbf{Future directions:}
+\begin{frame}{Future Directions}
   \begin{itemize}
     \item Advanced deep learning models (attention-based, GNN-MLP)
     \item Real-time adaptive grid configurations
@@ -292,6 +284,12 @@
     \item Transfer learning across buildings
   \end{itemize}
 \end{frame}
+
+\begin{frame}[standout]
+  Questions?
+\end{frame}
+
+\appendix
 
 \begin{frame}{Implementation Challenges}
   \textbf{Floor tiling variations:}
@@ -317,11 +315,5 @@
     \item Filtering made training feasible across all grid sizes
   \end{itemize}
 \end{frame}
-
-\begin{frame}[standout]
-  Questions?
-\end{frame}
-
-\appendix
 
 \end{document}
