@@ -29,19 +29,20 @@
 \begin{frame}[plain,noframenumbering]
   % White bar with logos at top
   \begin{tikzpicture}[remember picture,overlay]
-    % White box that starts from near the left edge and goes to the right
-    \fill[white] ([xshift=1cm]current page.north west) rectangle ([yshift=-1.8cm]current page.north east);
-    % Yellow border around the white box
-    \draw[line width=2pt,color=mLightBrown] ([xshift=1cm]current page.north west) rectangle ([yshift=-1.8cm]current page.north east);
+    % White box that starts from left and ends before the right edge
+    \fill[white] (current page.north west) rectangle ([xshift=-1cm,yshift=-1.8cm]current page.north east);
+    % Yellow border - only bottom and right edges (not touching page borders)
+    \draw[line width=0.4pt,color=mLightBrown] ([yshift=-1.8cm]current page.north west) -- ([xshift=-1cm,yshift=-1.8cm]current page.north east);
+    \draw[line width=0.4pt,color=mLightBrown] ([xshift=-1cm]current page.north east) -- ([xshift=-1cm,yshift=-1.8cm]current page.north east);
     \node[yshift=-0.9cm] at (current page.north) {
       \includegraphics[height=1.2cm]{logo/awist.png}
       \hspace{1.5cm}
       \includegraphics[height=1.2cm]{logo/muic_logo.jpg}
-      \hspace{1.5cm}
-      \includegraphics[height=1cm]{logo/cmkl_logo.png}
+      \hspace{1cm}
+      \includegraphics[height=1.2cm]{logo/cmkl_logo.png}
     };
   \end{tikzpicture}
-  \vspace{2.5cm}
+  \vspace{3cm}
   \titlepage
 \end{frame}
 }
